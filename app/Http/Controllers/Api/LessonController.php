@@ -35,7 +35,7 @@ class LessonController extends Controller
 
     public function deactivateActivateGrade(Grade $grade): JsonResponse
     {
-        $grade->staus = $grade->staus === Grade::ACTIVE_STATUS ? Grade::INACTIVE_STATUS : Grade::ACTIVE_STATUS;
+        $grade->status = $grade->status === Grade::ACTIVE_STATUS ? Grade::INACTIVE_STATUS : Grade::ACTIVE_STATUS;
         $grade->save();
 
         return response()->json();
