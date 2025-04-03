@@ -13,6 +13,7 @@ class GradeResource extends JsonResource
     {
         return [
             'id' => $this->id,
+            'status' => $this->status,
             'grade' => $this->grade,
             'description' => $this->description,
             'startAt' => $this->start_at,

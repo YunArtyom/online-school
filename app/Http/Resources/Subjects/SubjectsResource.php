@@ -12,7 +12,12 @@ class SubjectsResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'name' => $this->name
+            'name' => $this->name,
+            'description' => $this->description,
+            'priceUSD' => $this->price_usd,
+            'priceRUB' => $this->price_rub,
+            'priceWON' => $this->price_won,
+            'status' => $this->status
         ];
     }
 }

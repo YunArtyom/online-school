@@ -38,8 +38,17 @@ Route::prefix('additional-materials')->middleware('auth:sanctum')->group(functio
 });
 
 Route::prefix('lesson')->middleware('auth:sanctum')->group(function () {
-    Route::get('/grades', [LessonController::class, 'grades']);
-    Route::get('/grades/{grade}', [LessonController::class, 'grade']);
-    Route::put('/grades/{grade}', [LessonController::class, 'editGrade'])->middleware('isDirector');
-    Route::put('/grades/deactivate-activate/{grade}', [LessonController::class, 'deactivateActivateGrade'])->middleware('isDirector');
+    Route::prefix('grades')->group(function () {
+        Route::get('/', [LessonController::class, 'grades']);
+        Route::get('/{grade}', [LessonController::class, 'grade']);
+        Route::put('/{grade}', [LessonController::class, 'editGrade'])->middleware('isDirector');
+        Route::put('/deactivate-activate/{grade}', [LessonController::class, 'deactivateActivateGrade'])->middleware('isDirector');
+    });
+
+    Route::prefix('subjects')->group(function () {
+        Route::post('/', [LessonController::class, 'createSubject'])->middleware('isDirector');
+        Route::get('/{subject}', [LessonController::class, 'subject']);
+        Route::put('/{subject}', [LessonController::class, 'editSubject'])->middleware('isDirector');
+        Route::put('/deactivate-activate/{subject}', [LessonController::class, 'deactivateActivateSubject'])->middleware('isDirector');
+    });
 });

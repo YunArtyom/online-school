@@ -5,8 +5,10 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CreateSubjectFormRequest;
 use App\Http\Requests\EditGradeFormRequest;
+use App\Http\Requests\EditSubjectFormRequest;
 use App\Http\Resources\Grades\GradeResource;
 use App\Http\Resources\Grades\GradesResource;
+use App\Http\Resources\Subjects\SubjectsResource;
 use App\Models\Grade;
 use App\Models\Subject;
 use Illuminate\Http\JsonResponse;
@@ -42,12 +44,33 @@ class LessonController extends Controller
     }
 
     //SUBJECTS
+    public function subject(Subject $subject): SubjectsResource
+    {
+        return new SubjectsResource($subject);
+    }
+
     public function createSubject(CreateSubjectFormRequest $request): JsonResponse
     {
         Subject::create($request->validated());
 
         return response()->json(status: 201);
     }
+
+    public function editSubject(Subject $subject, EditSubjectFormRequest $request): SubjectsResource
+    {
+        $subject->update($request->validated());
+
+        return new SubjectsResource($subject);
+    }
+
+    public function deactivateActivateSubject(Subject $subject): JsonResponse
+    {
+        $subject->status = $subject->status === Grade::ACTIVE_STATUS ? Grade::INACTIVE_STATUS : Grade::ACTIVE_STATUS;
+        $subject->save();
+
+        return response()->json();
+    }
+
 
     public function addTeacherToSubject()
     {

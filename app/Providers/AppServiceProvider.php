@@ -6,6 +6,7 @@ use App\Models\AdditionalMaterial;
 use App\Models\AdditionalMaterialPurchase;
 use App\Models\Grade;
 use App\Models\Notification;
+use App\Models\Subject;
 use App\Models\User;
 use App\Services\NotificationService;
 use Illuminate\Support\ServiceProvider;
@@ -42,6 +43,10 @@ class AppServiceProvider extends ServiceProvider
 
         Route::bind('grade', function (string $value) {
             return Grade::where('id', $value)->firstOrFail();
+        });
+
+        Route::bind('subject', function (string $value) {
+            return Subject::where('id', $value)->firstOrFail();
         });
     }
 }
