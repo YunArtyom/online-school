@@ -50,5 +50,14 @@ Route::prefix('lesson')->middleware('auth:sanctum')->group(function () {
         Route::get('/{subject}', [LessonController::class, 'subject']);
         Route::put('/{subject}', [LessonController::class, 'editSubject'])->middleware('isDirector');
         Route::put('/deactivate-activate/{subject}', [LessonController::class, 'deactivateActivateSubject'])->middleware('isDirector');
+
+        Route::prefix('{subject}/teachers')->group(function () {
+            Route::get('/', [LessonController::class, 'teachersBySubject'])->middleware('isDirector');
+            Route::get('/list', [LessonController::class, 'listFreeTeachersForSubject'])->middleware('isDirector');
+            //Route::post('/{teacher}', [LessonController::class, 'addTeacherToSubject'])->middleware('isDirector');
+            //Route::delete('/{teacher}', [LessonController::class, 'removeTeacherFromSubject'])->middleware('isDirector');
+        });
     });
 });
+
+//Разобраться с неймингом пивот таблиц

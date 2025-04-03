@@ -48,5 +48,9 @@ class AppServiceProvider extends ServiceProvider
         Route::bind('subject', function (string $value) {
             return Subject::where('id', $value)->firstOrFail();
         });
+
+        Route::bind('teacher', function (string $value) {
+            return User::where('id', $value)->where('type', User::TEACHER_TYPE)->firstOrFail();
+        });
     }
 }

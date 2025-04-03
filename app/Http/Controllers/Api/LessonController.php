@@ -9,8 +9,12 @@ use App\Http\Requests\EditSubjectFormRequest;
 use App\Http\Resources\Grades\GradeResource;
 use App\Http\Resources\Grades\GradesResource;
 use App\Http\Resources\Subjects\SubjectsResource;
+use App\Http\Resources\Teachers\FreeTeachersForSubjectResource;
+use App\Http\Resources\Teachers\TeachersBySubjectResource;
 use App\Models\Grade;
 use App\Models\Subject;
+use App\Models\SubjectTeacher;
+use App\Models\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
@@ -71,8 +75,26 @@ class LessonController extends Controller
         return response()->json();
     }
 
+    public function teachersBySubject(Subject $subject): AnonymousResourceCollection
+    {
+        return TeachersBySubjectResource::collection(SubjectTeacher::where('subject_id', $subject->id)->with('teacher')->get());
+    }
 
-    public function addTeacherToSubject()
+    public function listFreeTeachersForSubject(Subject $subject): AnonymousResourceCollection
+    {
+        $freeTeachers = User::select(['id', 'name'])
+            ->where('type', User::TEACHER_TYPE)
+            ->whereNotIn('id', SubjectTeacher::where('subject_id', $subject->id)->get()->pluck('teacher_id')->toArray())
+            ->get();
+
+        return FreeTeachersForSubjectResource::collection($freeTeachers);
+    }
+
+    public function addTeacherToSubject(Subject $subject)
+    {
+    }
+
+    public function removeTeacherFromSubject(Subject $subject)
     {
 
     }
