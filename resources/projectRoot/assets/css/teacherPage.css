@@ -1,0 +1,405 @@
+@font-face {
+    font-family: 'VelaSansGX';
+    src: url('../fonts/velasansgx-extralight.woff2') format('woff2'),
+         url('../fonts/velasansgx-extralight.woff') format('woff');
+    font-weight: normal; /* можно указать bold или другие значения */
+    font-style: normal; /* можно указать italic, oblique или другие значения */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'VelaSansGX', sans-serif;
+    background-color: rgba(253, 251, 255, 1);
+}
+
+.wrapper {
+    display: flex;
+}
+
+.option_sidebar_wrapper {
+    width: 311px;
+    min-height: 100vh;
+    background-color: rgba(242, 245, 252, 1);
+    padding: 40px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sidebar-item {
+    width: 70%; /* Ширина элемента сайдбара */
+    margin: 5px 0; /* Отступы по вертикали */
+    background-color: rgba(242, 245, 252, 1);
+    border-radius: 22px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    text-align: center; /* Центрирование содержимого */
+}
+
+.sidebar-content {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 10px 0; /* Вертикальные отступы внутри элементов */
+}
+
+.sidebar-item_main  .sidebar-content {
+    justify-content: center; /* Центрирование текста для главной страницы */
+}
+
+.sidebar-item a {
+    width: 100%;
+    height: 100%; /* Ссылка занимает всю высоту элемента */
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #000;
+}
+
+.sidebar-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px; /* Отступ между иконкой и текстом */
+}
+
+.sidebar-text {
+    font-size: 16px;
+    text-align: left; /* Выравнивание текста по левому краю */
+}
+
+.sidebar-item .sidebar-text{
+    font-size: 20px;
+}
+
+.sidebar-item_main {
+    background-color: rgba(69, 54, 245, 1);
+    padding: 1px 48px 1px 48px;
+    border-radius: 22px;
+    margin-bottom: 45px;
+}
+
+.sidebar-item_main .sidebar-text {
+    color: #fff;
+}
+
+.sidebar-items {
+    width: 100%; /* Контейнер для элементов сайдбара */
+    padding-left: 15px;
+    padding-right: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.teacherPage-content {
+    flex: 1;
+    padding: 30px 355px 20px 50px;
+}
+
+.teacherPage-header {
+    font-size: 16px;
+    padding: 10px;
+    margin-bottom: 5px;
+}
+
+.teacherPage-header-text {
+    padding-left: 40px;
+    font-size: 36px;
+    font-weight: bold;
+    text-align: left;
+}
+
+.teacherPage-info {
+    display: flex; /* Горизонтальное расположение блоков */
+    padding: 10px 45px 15px 45px; /* Отступы для блока */
+    border-radius: 8px; /* Закругление углов */
+}
+
+.teacherPage-info-full {
+    max-width: 366px;
+    flex: 1; /* Занимает оставшееся пространство */
+    display: flex;
+    flex-direction: column; /* Вертикальное расположение элементов */
+    justify-content: space-between; /* Распределение элементов */
+    background-color: #f2f5fc; /* Светло-голубой фон */
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.teacherPage-info-status {
+    max-width: 366px;
+    height: 100%;
+    display: flex;
+    flex-direction: column; /* Вертикальное расположение элементов */
+    justify-content: flex-start; /* Элементы прижаты к началу */
+    margin-left: 10px; /* Отступ между блоками */
+    background-color: #f2f5fc; /* Светло-голубой фон */
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.teacherPage-info-status button {
+    width: 100%; /* Кнопки занимают всю ширину */
+    margin-top: 8px; /* Отступ между кнопками */
+}
+
+.teacherPage-acc-info-cell-right{
+    text-align: left;
+    font-weight: 600;
+    padding-left: 155px;
+    font-size: 15px;
+}
+
+.teacherPage-button-vouage{
+    background-color: rgba(93, 181, 97, 1);
+    color: white; /* Button text color */
+    padding: 15px 20px; /* Padding for the buttons */
+    border: none; /* No border */
+    border-radius: 10px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Transition effects */
+    flex: 1; /* Make buttons take equal space */
+    font-size: 16px;
+}
+
+.teacherPage-button-change_info {
+    background-color: rgba(69, 54, 245, 1); /* Button background color */
+    color: white; /* Button text color */
+    padding: 15px 20px; /* Padding for the buttons */
+    border: none; /* No border */
+    border-radius: 10px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Transition effects */
+    flex: 1; /* Make buttons take equal space */
+    font-size: 16px;
+}
+
+.teacherPage-button-vouage:hover{
+    background-color: rgba(93, 181, 97, 0.8); /* Darker color on hover */
+}
+
+.teacherPage-button-change_info:hover {
+    background-color: rgba(69, 54, 245, 0.8); /* Darker color on hover */
+}
+
+.teacherPage-buttons-status{
+    margin-top: 2px;
+}
+
+.teacherPage-header-info{
+    padding: 7px;
+}
+
+.teacherPage-acc-info{
+    display: flex;
+    justify-content: space-between;
+    padding: 7px;
+    text-align: right;
+}
+
+.teacherPage-notifications {
+    padding: 10px 45px 25px 45px;
+    display: flex;
+    flex-direction: column;
+}
+
+.teacherPage-notifications-second {
+    padding: 10px 45px 25px 45px;
+    display: flex;
+    flex-direction: column;
+}
+
+.teacherPage-notifications-third {
+    padding: 10px 45px 25px 45px;
+    display: flex;
+    flex-direction: column;
+}
+
+.teacherPage-header-row {
+    display: grid;
+    grid-template-columns: 1fr 2.5fr;
+    padding: 5px;
+    align-items: center;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.teacherPage-row {
+    display: grid;
+    grid-template-columns: 1fr 2.5fr;
+    padding: 5px;
+    align-items: center;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    background-color: #f2f5fc;
+    justify-items: start;
+}
+
+.teacherPage-header-row-second {
+    display: grid;
+    grid-template-columns: 1.3fr 0.7fr 1fr 1fr;
+    padding: 5px;
+    align-items: center;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.teacherPage-row-second {
+    display: grid;
+    grid-template-columns: 1.3fr 0.7fr 1fr 1fr;
+    padding: 5px;
+    align-items: center;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    background-color: #f2f5fc;
+    justify-items: start;
+}
+
+.teacherPage-header-row-third {
+    display: grid;
+    grid-template-columns: 1.3fr 2.2fr;
+    padding: 5px;
+    align-items: center;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.teacherPage-row-third {
+    display: grid;
+    grid-template-columns: 1.3fr 2.2fr;
+    padding: 5px;
+    align-items: center;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    background-color: #f2f5fc;
+    justify-items: start;
+}
+
+.teacherPage-header-row {
+    background-color: #4caf50;
+    color: white;
+    font-weight: bold;
+}
+
+.teacherPage-header-row-second {
+    background-color: #4caf50;
+    color: white;
+    font-weight: bold;
+}
+
+.teacherPage-header-row-third {
+    background-color: #4caf50;
+    color: white;
+    font-weight: bold;
+}
+
+
+.teacherPage-header-cell {
+    padding: 10px;
+    text-align: left;
+}
+
+.teacherPage-cell {
+    padding: 10px 10px 10px 10px;
+    text-align: left;
+    border-radius: 20px;
+}
+
+.teacherPage-header-cell-second {
+    padding: 10px;
+    text-align: left;
+}
+
+.teacherPage-cell-second {
+    padding: 10px 10px 10px 10px;
+    text-align: left;
+    border-radius: 20px;
+}
+
+.teacherPage-header-cell-third {
+    padding: 10px;
+    text-align: left;
+}
+
+.teacherPage-cell-third {
+    padding: 10px 10px 10px 10px;
+    text-align: left;
+    border-radius: 20px;
+}
+
+/* Result Styles */
+.result-pass {
+    background-color: rgba(93, 181, 97, 1);
+    color: white;
+    text-align: center;
+    font-weight: bold;
+}
+
+.result-read {
+    background-color: rgba(93, 181, 97, 1);
+    color: white;
+    text-align: center;
+    font-weight: bold;
+}
+
+.result-warning {
+    background-color: rgba(244, 206, 90, 1);
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    display: flex;
+}
+
+.result-fail {
+    background-color: rgba(208, 60, 83, 1);
+    color: white;
+    text-align: center;
+    font-weight: bold;
+}
+
+.result-overdue {
+    background-color: rgba(208, 60, 83, 1);
+    color: white;
+    text-align: center;
+    font-weight: bold;
+}
+
+.teacherPage-buttons {
+    display: flex;
+    justify-content: space-between; /* Space between buttons */
+    align-items: center; /* Align items vertically centered */
+}
+
+.teacherPage-button-outline {
+    border: 2px solid rgba(69, 54, 245, 1);
+    background-color: transparent; /* Transparent background */
+    padding: 10px 20px; /* Padding for the button */
+    border-radius: 10px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transition effects */
+    white-space: nowrap; /* Prevent text from wrapping */
+}
+
+.teacherPage-button-outline:hover {
+    background-color: rgba(69, 54, 245, 0.1); /* Light background on hover */
+}
+
+.teacherPage-button-red {
+    background-color: rgba(208, 60, 83, 1);
+    color: white; /* White text */
+    padding: 10px 20px; /* Padding for the button */
+    border: none; /* No border */
+    border-radius: 10px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Transition effects */
+    white-space: nowrap; /* Prevent text from wrapping */
+}
+
+.teacherPage-button-red:hover {
+    background-color: rgba(208, 60, 83, 0.8); /* Darker red on hover */
+}

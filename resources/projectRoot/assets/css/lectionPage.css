@@ -1,0 +1,633 @@
+@font-face {
+    font-family: 'VelaSansGX';
+    src: url('../fonts/velasansgx-extralight.woff2') format('woff2'),
+         url('../fonts/velasansgx-extralight.woff') format('woff');
+    font-weight: normal; /* можно указать bold или другие значения */
+    font-style: normal; /* можно указать italic, oblique или другие значения */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'VelaSansGX', sans-serif;
+    background-color: rgba(253, 251, 255, 1);
+}
+
+.wrapper {
+    display: flex;
+}
+
+.option_sidebar_wrapper {
+    width: 311px;
+    min-height: 100vh;
+    background-color: rgba(242, 245, 252, 1);
+    padding: 40px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sidebar-item {
+    width: 70%; /* Ширина элемента сайдбара */
+    margin: 5px 0; /* Отступы по вертикали */
+    background-color: rgba(242, 245, 252, 1);
+    border-radius: 22px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    text-align: center; /* Центрирование содержимого */
+}
+
+.sidebar-content {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 10px 0; /* Вертикальные отступы внутри элементов */
+}
+
+.sidebar-item_main  .sidebar-content {
+    justify-content: center; /* Центрирование текста для главной страницы */
+}
+
+.sidebar-item a {
+    width: 100%;
+    height: 100%; /* Ссылка занимает всю высоту элемента */
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #000;
+}
+
+.sidebar-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px; /* Отступ между иконкой и текстом */
+}
+
+.sidebar-text {
+    font-size: 16px;
+    text-align: left; /* Выравнивание текста по левому краю */
+}
+
+.sidebar-item .sidebar-text{
+    font-size: 20px;
+}
+
+.sidebar-item_main {
+    background-color: rgba(69, 54, 245, 1);
+    padding: 1px 48px 1px 48px;
+    border-radius: 22px;
+    margin-bottom: 45px;
+}
+
+.sidebar-item_main .sidebar-text {
+    color: #fff;
+}
+
+.sidebar-items {
+    width: 100%; /* Контейнер для элементов сайдбара */
+    padding-left: 15px;
+    padding-right: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.leciton-content {
+    flex: 1;
+    padding: 30px 160px 20px 10px;
+}
+
+.header_leciton_page {
+    font-size: 16px;
+    padding: 10px;
+    margin-bottom: 5px;
+}
+
+.header_leciton_page_text {
+    padding-left: 40px;
+    font-size: 36px;
+    font-weight: bold;
+    text-align: left;
+}
+
+.leciton-notifications {
+    padding: 10px 45px 25px 45px;
+}
+
+/*.notification-item {
+    background-color: rgba(242, 245, 252, 1);
+    padding: 20px 20px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}*/
+
+.leciton-notification-item_text {
+    font-size: 24px; /* Уменьшенный шрифт для текста уведомления */
+    font-weight: bold; /* Полужирный шрифт */
+    margin-bottom: 14px; /* Отступ между текстом и опциями */
+}
+
+.leciton-notification-item_text-second {
+    font-size: 20px; /* Уменьшенный шрифт для текста уведомления */
+    font-weight: bold; /* Полужирный шрифт */
+    margin-bottom: 14px; /* Отступ между текстом и опциями */
+}
+
+.leciton-notifications_main_text {
+    font-weight: bold;
+    font-size: 36px;
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+.leciton-notification_item_options {
+    display: flex; /* Flex для выравнивания опций */
+    gap: 10px; /* Расстояние между опциями */
+    align-items: center; /* Центрирование опций по вертикали */
+    flex-wrap: wrap; /* Опции переносятся на новую строку, если не хватает места */
+}
+
+.leciton-notification_item_option {
+    font-size: 15px;
+    color: rgba(80, 77, 82, 1);
+    cursor: pointer; /* Курсор указатель для интерактивных элементов */
+}
+
+.leciton-notification_item_option_last {
+    margin-left: auto;
+    font-size: 15px;
+    color: rgba(80, 77, 82, 1);
+    cursor: pointer; /* Курсор указатель для интерактивных элементов */
+    right: 0;
+    text-decoration-line: underline;
+}
+
+.leciton-notification_item_grade {
+    display: flex; /* Flexbox для выравнивания текста внутри */
+    justify-content: center; /* Центрирование по горизонтали */
+    align-items: center; /* Центрирование по вертикали */
+    width: 126px;
+    height: 34px;
+    padding: 5px;
+    background-color: rgba(244, 206, 90, 1);
+    border-radius: 17px;
+    font-size: 15px;
+    color: #fff;
+}
+
+.leciton-notification-item_content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: space-between; /* Растягиваем на все доступное пространство */
+    padding-bottom: 30px;
+}
+
+.calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); /* 7 колонок для 7 дней недели */
+    gap: 10px;
+    border-radius: 10px;
+}
+
+.card {
+    background-color: #f2f6fd; /* Light grayish blue background */
+    border-radius: 10px;
+    width: 178px;
+    height: 205px;
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, sans-serif;
+    justify-content: space-between;
+    padding: 15px;
+}
+
+.card h1 {
+    font-size: 20px;
+    font-weight: 500;
+    margin: 0;
+    color: #2d2d2d;
+}
+
+.card hr {
+    width: 50%;
+    border: none;
+    border-top: 1px solid #2d2d2d;
+    margin: 3px 0;
+}
+
+.card .number {
+    font-size: 20px;
+    font-weight: bold;
+    color: #2d2d2d;
+    margin: 0;
+}
+
+.card .lessons{
+    margin-top: auto;
+}
+
+.card .no-lessons {
+    margin-top: 5px;
+    background-color: #c0c0c0;
+    border-radius: 15px;
+    padding: 5px 15px;
+    color: white;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.card .lesson {
+    margin-top: 5px;
+    background-color: rgba(93, 181, 97, 1);
+    border-radius: 15px;
+    padding: 5px 15px;
+    color: white;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.card .lesson-homework{
+    background-color: rgba(69, 54, 245, 1);
+    margin-top: 5px;
+    border-radius: 15px;
+    padding: 5px 15px;
+    color: white;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.card .lesson-ekzamen{
+    background-color: rgba(208, 60, 83, 1);
+    margin-top: 5px;
+    border-radius: 15px;
+    padding: 5px 15px;
+    color: white;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.card-gray h1 {
+    font-size: 20px;
+    font-weight: 500;
+    margin: 0;
+    color: #2d2d2d;
+}
+
+.card-gray hr {
+    width: 50%;
+    border: none;
+    border-top: 1px solid #2d2d2d;
+    margin: 3px 0;
+}
+
+.card-gray .number {
+    font-size: 20px;
+    font-weight: bold;
+    color: #2d2d2d;
+    margin: 0;
+}
+
+.card-gray .lessons{
+    margin-top: auto;
+}
+
+.card-gray .no-lessons {
+    margin-top: 5px;
+    background-color: #c0c0c0; /* Light gray for the button */
+    border-radius: 15px;
+    padding: 5px 15px;
+    color: white;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.card-gray {
+    background-color: rgba(208, 208, 208, 1); /* Light grayish blue background */
+    border-radius: 10px;
+    width: 178px;
+    height: 205px;
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, sans-serif;
+    justify-content: space-between;
+    padding: 15px;
+}
+
+.leciton-notifications-third {
+    padding: 10px 45px 25px 45px;
+    display: flex;
+    flex-direction: column;
+}
+
+.leciton-header-row-second {
+    display: grid;
+    grid-template-columns: 1.3fr 1.1fr 1fr 1fr 0.9fr;
+    padding: 5px;
+    align-items: center;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.leciton-row-second {
+    display: grid;
+    grid-template-columns: 1.3fr 1.1fr 1fr 1fr 0.9fr;
+    padding: 5px;
+    align-items: center;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    background-color: #f2f5fc;
+    justify-items: start;
+}
+
+.leciton-header-row-second {
+    background-color: #4caf50;
+    color: white;
+    font-weight: bold;
+}
+
+.leciton-header-cell-second {
+    padding: 10px;
+    text-align: left;
+}
+
+.leciton-cell-second {
+    padding: 10px 10px 10px 10px;
+    text-align: left;
+    border-radius: 20px;
+}
+
+.leciton-buttons {
+    display: flex;
+    justify-content: space-between; /* Space between buttons */
+    align-items: center; /* Align items vertically centered */
+    padding-bottom: 10px;
+}
+
+.leciton-button-outline {
+    background-color: #4caf50;; /* Transparent background */
+    padding: 12px 35px; /* Padding for the button */
+    border-radius: 10px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transition effects */
+    white-space: nowrap; /* Prevent text from wrapping */
+    border: none;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.toggle-sidebar { 
+    display: none; 
+    /* Показываем кнопку для открытия сайдбара */ 
+} 
+
+.close-sidebar{
+    display: none;
+}
+
+.mobile{
+    display: none;
+}
+
+@media (min-width: 1921px) {
+    .leciton-content {
+        flex: 1;
+        padding: 30px 200px 20px 10px;
+    }
+}
+
+@media (min-width: 2421px) {
+    .leciton-content {
+        flex: 1;
+        padding: 30px 800px 20px 10px;
+    }
+}
+
+@media (max-width: 768px) { 
+ 
+    .body { 
+        overflow-x: hidden; 
+    } 
+ 
+    .leciton-notification-item_text { 
+        font-size: 24px; 
+    } 
+ 
+    .leciton-notifications { 
+        padding: 10px 20px 20px 20px 
+    } 
+
+    .desktop {
+        display: none; /* Скрыть десктопную версию */
+    }
+    
+    .mobile {
+        display: block; /* Показать мобильную версию */
+        margin-bottom: 0px;
+    }
+ 
+    .wrapper { 
+        flex-direction: column; 
+        /* Изменяем направление на колонку */ 
+        max-width: 100vw; 
+        /* Ограничить ширину до 100% ширины окна */ 
+        overflow-x: hidden; 
+        /* Скрыть горизонтальную прокрутку */ 
+    }
+ 
+    .option_sidebar_wrapper { 
+        position: fixed; 
+        top: 0;
+        left: -100%;
+        width: 100%;
+        transition: left 0.3s ease; 
+        height: 100%;
+        z-index: 1000; 
+        /* Устанавливаем уровень z для сайдбара */ 
+    } 
+ 
+    .option_sidebar_wrapper.active { 
+        left: 0; 
+        /* Показываем сайдбар */ 
+    } 
+ 
+    .leciton-content { 
+        padding: 30px 0px 0px 0px; 
+    }
+
+    .card{
+        background-color: #f2f6fd; /* Light grayish blue background */
+        border-radius: 10px;
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        font-family: Arial, sans-serif;
+        justify-content: space-between;
+        padding: 15px;
+        margin-top: 10px;
+    }
+
+    .card .lesson {
+        position: relative;
+        margin-top: 5px;
+        border-radius: 15px;
+        background-color: transparent;
+        padding: 5px 15px 5px 10px;
+        color: rgba(13, 6, 11, 1);
+        font-size: 20px;
+        font-weight: 400;
+    }
+
+    .card .lesson-homework {
+        position: relative;
+        margin-top: 5px;
+        border-radius: 15px;
+        background-color: transparent;
+        padding: 5px 15px 5px 10px;
+        color: rgba(13, 6, 11, 1);
+        font-size: 20px;
+        font-weight: 400;
+    }
+
+    .card .no-lessons {
+        position: relative;
+        margin-top: 5px;
+        border-radius: 15px;
+        background-color: transparent;
+        padding: 5px 15px 5px 10px;
+        color: rgba(13, 6, 11, 1);
+        font-size: 20px;
+        font-weight: 400;
+    }
+
+    .card .lesson::before {
+        content: ""; /* Создаем пустой контент для псевдоэлемента */
+        position: absolute; /* Абсолютное позиционирование */
+        left: 0px; /* Сдвигаем полоску влево */
+        top: 5px; /* Начинаем с верхней части родительского элемента */
+        height: 20px; /* Высота полоски равна высоте родительского элемента */
+        width: 3px; /* Ширина полоски */
+        background-color: rgba(93, 181, 97, 1); /* Цвет полоски */
+    }
+
+    .card .no-lessons:before {
+        content: ""; /* Создаем пустой контент для псевдоэлемента */
+        position: absolute; /* Абсолютное позиционирование */
+        left: 0px; /* Сдвигаем полоску влево */
+        top: 5px; /* Начинаем с верхней части родительского элемента */
+        height: 20px; /* Высота полоски равна высоте родительского элемента */
+        width: 3px; /* Ширина полоски */
+        background-color: rgba(186, 186, 186, 1) /* Цвет полоски */
+    }
+
+    .card .lesson-homework:before {
+        content: ""; /* Создаем пустой контент для псевдоэлемента */
+        position: absolute; /* Абсолютное позиционирование */
+        left: 0px; /* Сдвигаем полоску влево */
+        top: 5px; /* Начинаем с верхней части родительского элемента */
+        height: 20px; /* Высота полоски равна высоте родительского элемента */
+        width: 3px; /* Ширина полоски */
+        background-color: rgba(69, 54, 245, 1); /* Цвет полоски */
+    }
+
+    .leciton-notification-item_text-second {
+        font-size: 20px; /* Уменьшенный шрифт для текста уведомления */
+        font-weight: 500; /* Полужирный шрифт */
+        margin-top: 20px; /* Отступ между текстом и опциями */
+        margin-bottom: 0px;
+    }
+
+    .for-mobile-arrows {
+        display: flex;
+        align-items: center; /* Центрируем элементы по вертикали */
+        justify-content: space-between; /* Распределяем элементы по горизонтали */
+    }
+    
+    .arrow {
+        background-color: transparent; /* Прозрачный фон */
+        border: none; /* Убираем рамку */
+        font-size: 18px; /* Размер стрелок */
+        cursor: pointer; /* Курсор в виде указателя */
+        color: #333; /* Цвет стрелок */
+        transition: color 0.3s; /* Плавный переход цвета */
+        margin-top: 20px;
+    }
+    
+    .arrow:hover {
+        color: rgba(69, 54, 245, 1); /* Цвет стрелок при наведении */
+    }
+
+    .card hr{
+        width: 100%;
+    }
+
+    .lesson{
+        padding-top: 10px;
+    }
+ 
+    .toggle-sidebar { 
+        display: block; 
+        position: absolute; 
+        top: 5px;  
+        right: 10px; 
+        color: rgba(69, 54, 245, 1); 
+        border: none; 
+        border-radius: 5px; 
+        padding: 10px; 
+        cursor: pointer; 
+        z-index: 1; 
+        font-size: 24px;
+        background-color: transparent; 
+    } 
+
+    .close-sidebar {
+        display: block; 
+        position: absolute;
+        top: 5px; /* Отступ сверху */
+        right: 10px; /* Отступ справа */
+        font-size: 24px; /* Размер шрифта */
+        cursor: pointer; /* Курсор в виде указателя */
+        color: rgba(69, 54, 245, 1); /* Цвет крестика */
+        border: none; 
+        background-color: transparent; 
+    }
+
+    .form-container{
+        margin-top: 10px;
+        display: flex;
+        padding: 10px;
+        flex-direction: column;
+        background-color: #f2f6fd; 
+        border-radius: 10px;
+    }
+    
+    .monthSelect{
+        margin-top: 10px;
+        border-radius: 10px;
+        padding: 10px;
+        border: none;
+        appearance: none;
+    }
+
+    .monthSelectBtn{
+        margin-top: 15px;
+        background-color: rgba(93, 181, 97, 1);
+        color: white;
+        border: none;
+        padding: 10px;
+        font-size: 16px;
+        border-radius: 10px;
+        cursor: pointer;
+        margin-bottom: 5px;
+        font-weight: 700;
+    }
+    
+    .monthSelectLabel{
+        margin-top: 10px;
+    }
+}
