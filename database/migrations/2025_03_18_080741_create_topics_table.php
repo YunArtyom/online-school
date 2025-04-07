@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Topic;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -12,7 +13,7 @@ return new class extends Migration
         Schema::create('topics', function (Blueprint $table) {
             $table->id();
             $table->foreignId('subject_id')->constrained('subjects');
-            $table->foreignId('additional_material_id')->constrained('additional_materials');
+            $table->enum('status', Topic::STATUSES)->default(Topic::INACTIVE_STATUS);
             $table->string('name');
             $table->text('description')->nullable();
             $table->text('theory')->nullable();

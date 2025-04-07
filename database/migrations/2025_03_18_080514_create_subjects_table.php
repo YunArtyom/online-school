@@ -13,7 +13,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->foreignId('grade_id')->constrained('grades');
-            $table->enum('status', Subject::STATUSES)->default(Subject::ACTIVE_STATUS);
+            $table->enum('status', Subject::STATUSES)->default(Subject::INACTIVE_STATUS);
             $table->text('description');
             $table->unsignedBigInteger('price_usd');
             $table->unsignedBigInteger('price_rub');

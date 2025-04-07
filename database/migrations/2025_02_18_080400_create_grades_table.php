@@ -14,7 +14,7 @@ return new class extends Migration
             $table->id();
             $table->integer('grade');
             $table->text('description');
-            $table->enum('status', Grade::STATUSES)->default(Grade::ACTIVE_STATUS);
+            $table->enum('status', Grade::STATUSES)->default(Grade::INACTIVE_STATUS);
             $table->date('start_at');
             $table->unsignedBigInteger('price_usd');
             $table->unsignedBigInteger('price_rub');
