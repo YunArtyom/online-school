@@ -31,13 +31,7 @@ class AppServiceProvider extends ServiceProvider
             return Notification::where('id', $value)->where('user_id', auth()->id())->firstOrFail();
         });
 
-        Route::bind('material', function (string $value) {
-            if (auth()->user()->type === User::DIRECTOR_TYPE) {
-                return AdditionalMaterial::where('id', $value)->firstOrFail();
-            }
-
-            AdditionalMaterialPurchase::where('material_id', $value)->where('user_id', auth()->id())->firstOrFail();
-
+        Route::bind('additionalMaterial', function (string $value) {
             return AdditionalMaterial::where('id', $value)->firstOrFail();
         });
 

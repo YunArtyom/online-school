@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class AdditionalMaterial extends Model
 {
-    protected $fillable = ['name', 'description', 'link', 'price_usd', 'price_rub', 'price_won',];
+    protected $fillable = ['name', 'description', 'link', 'price_usd', 'price_rub', 'price_won'];
 }

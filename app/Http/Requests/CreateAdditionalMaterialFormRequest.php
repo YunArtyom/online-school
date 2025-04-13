@@ -2,14 +2,12 @@
 
 namespace App\Http\Requests;
 
-use App\Models\Notification;
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rule;
 
 
-class AdditionalMaterialFormRequest extends FormRequest
+class CreateAdditionalMaterialFormRequest extends FormRequest
 {
-    public function rules()
+    public function rules(): array
     {
         return [
             'name' => 'required|string|max:100',

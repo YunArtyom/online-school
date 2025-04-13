@@ -26,15 +26,12 @@ Route::prefix('notification')->middleware('auth:sanctum')->group(function () {
     });
 });
 
-Route::prefix('additional-materials')->middleware('auth:sanctum')->group(function () {
-    Route::get('/', [AdditionalMaterialController::class, 'index']);
-    Route::get('/{material}', [AdditionalMaterialController::class, 'show']);
-
-    Route::middleware('isDirector')->group(function () {
-        Route::post('/', [AdditionalMaterialController::class, 'store']);
-        Route::put('/{material}', [AdditionalMaterialController::class, 'update']);
-        Route::delete('/{material}', [AdditionalMaterialController::class, 'destroy']);
-    });
+Route::prefix('director-additional-materials')->middleware(['auth:sanctum', 'isDirector'])->group(function () {
+    Route::get('/', [AdditionalMaterialController::class, 'directorList']);
+    Route::get('/{additionalMaterial}', [AdditionalMaterialController::class, 'directorShow']);
+    Route::post('/', [AdditionalMaterialController::class, 'store']);
+    Route::put('/{additionalMaterial}', [AdditionalMaterialController::class, 'update']);
+    Route::delete('/{additionalMaterial}', [AdditionalMaterialController::class, 'destroy']);
 });
 
 Route::prefix('lesson')->middleware('auth:sanctum')->group(function () {
@@ -54,10 +51,9 @@ Route::prefix('lesson')->middleware('auth:sanctum')->group(function () {
         Route::prefix('{subject}/teachers')->group(function () {
             Route::get('/', [LessonController::class, 'teachersBySubject'])->middleware('isDirector');
             Route::get('/list', [LessonController::class, 'listFreeTeachersForSubject'])->middleware('isDirector');
-            //Route::post('/{teacher}', [LessonController::class, 'addTeacherToSubject'])->middleware('isDirector');
-            //Route::delete('/{teacher}', [LessonController::class, 'removeTeacherFromSubject'])->middleware('isDirector');
+            Route::post('/{teacher}', [LessonController::class, 'addTeacherToSubject'])->middleware('isDirector');
+            Route::delete('/{teacher}', [LessonController::class, 'removeTeacherFromSubject'])->middleware('isDirector');
         });
     });
 });
 
-//Разобраться с неймингом пивот таблиц

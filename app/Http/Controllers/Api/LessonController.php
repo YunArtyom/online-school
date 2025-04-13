@@ -90,13 +90,22 @@ class LessonController extends Controller
         return FreeTeachersForSubjectResource::collection($freeTeachers);
     }
 
-    public function addTeacherToSubject(Subject $subject)
+    public function addTeacherToSubject(Subject $subject, User $teacher): JsonResponse
     {
+        $isset = SubjectTeacher::where('subject_id', $subject->id)->where('teacher_id', $teacher->id)->first();
+
+        if (!$isset) {
+            SubjectTeacher::create(['subject_id' => $subject->id, 'teacher_id' => $teacher->id]);
+        }
+
+        return response()->json(status: 201);
     }
 
-    public function removeTeacherFromSubject(Subject $subject)
+    public function removeTeacherFromSubject(Subject $subject, User $teacher): JsonResponse
     {
+        SubjectTeacher::where('subject_id', $subject->id)->where('teacher_id', $teacher->id)->delete();
 
+        return response()->json();
     }
 
     public function topics()
