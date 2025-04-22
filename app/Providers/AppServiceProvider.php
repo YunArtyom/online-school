@@ -3,10 +3,10 @@
 namespace App\Providers;
 
 use App\Models\AdditionalMaterial;
-use App\Models\AdditionalMaterialPurchase;
 use App\Models\Grade;
 use App\Models\Notification;
 use App\Models\Subject;
+use App\Models\Topic;
 use App\Models\User;
 use App\Services\NotificationService;
 use Illuminate\Support\ServiceProvider;
@@ -45,6 +45,10 @@ class AppServiceProvider extends ServiceProvider
 
         Route::bind('teacher', function (string $value) {
             return User::where('id', $value)->where('type', User::TEACHER_TYPE)->firstOrFail();
+        });
+
+        Route::bind('topic', function (string $value) {
+            return Topic::where('id', $value)->firstOrFail();
         });
     }
 }

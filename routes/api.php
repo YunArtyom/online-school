@@ -48,12 +48,20 @@ Route::prefix('lesson')->middleware('auth:sanctum')->group(function () {
         Route::put('/{subject}', [LessonController::class, 'editSubject'])->middleware('isDirector');
         Route::put('/deactivate-activate/{subject}', [LessonController::class, 'deactivateActivateSubject'])->middleware('isDirector');
 
-        Route::prefix('{subject}/teachers')->group(function () {
-            Route::get('/', [LessonController::class, 'teachersBySubject'])->middleware('isDirector');
-            Route::get('/list', [LessonController::class, 'listFreeTeachersForSubject'])->middleware('isDirector');
-            Route::post('/{teacher}', [LessonController::class, 'addTeacherToSubject'])->middleware('isDirector');
-            Route::delete('/{teacher}', [LessonController::class, 'removeTeacherFromSubject'])->middleware('isDirector');
+        Route::prefix('{subject}/teachers')->middleware('isDirector')->group(function () {
+            Route::get('/', [LessonController::class, 'teachersBySubject']);
+            Route::get('/list', [LessonController::class, 'listFreeTeachersForSubject']);
+            Route::post('/{teacher}', [LessonController::class, 'addTeacherToSubject']);
+            Route::delete('/{teacher}', [LessonController::class, 'removeTeacherFromSubject']);
         });
+    });
+
+    Route::prefix('topics')->middleware('isDirector')->group(function () {
+        Route::post('/', [LessonController::class, 'createTopic']);
+        Route::put('/{topic}', [LessonController::class, 'editTopic']);
+        Route::put('/deactivate-activate/{topic}', [LessonController::class, 'deactivateActivateTopic']);
+        Route::delete('/{topic}', [LessonController::class, 'deleteTopic']);
+        Route::get('/calendar', [LessonController::class, 'calendarTopics']);
     });
 });
 

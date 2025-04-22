@@ -6,14 +6,18 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\CreateSubjectFormRequest;
 use App\Http\Requests\EditGradeFormRequest;
 use App\Http\Requests\EditSubjectFormRequest;
+use App\Http\Requests\Topic\CreateTopicFormRequest;
+use App\Http\Requests\Topic\EditTopicFormRequest;
 use App\Http\Resources\Grades\GradeResource;
 use App\Http\Resources\Grades\GradesResource;
 use App\Http\Resources\Subjects\SubjectsResource;
 use App\Http\Resources\Teachers\FreeTeachersForSubjectResource;
 use App\Http\Resources\Teachers\TeachersBySubjectResource;
+use App\Http\Resources\Topics\TopicResource;
 use App\Models\Grade;
 use App\Models\Subject;
 use App\Models\SubjectTeacher;
+use App\Models\Topic;
 use App\Models\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
@@ -75,6 +79,11 @@ class LessonController extends Controller
         return response()->json();
     }
 
+    public function deleteSubject()
+    {
+        //
+    }
+
     public function teachersBySubject(Subject $subject): AnonymousResourceCollection
     {
         return TeachersBySubjectResource::collection(SubjectTeacher::where('subject_id', $subject->id)->with('teacher')->get());
@@ -108,32 +117,67 @@ class LessonController extends Controller
         return response()->json();
     }
 
-    public function topics()
+    public function createTopic(CreateTopicFormRequest $request): TopicResource
+    {
+        $topic = Topic::create(['grade_id' => $request->grade_id, 'subject_id' => $request->subject_id,
+            'name' => $request->name, 'status' => Topic::INACTIVE_STATUS
+        ]);
+
+        return new TopicResource($topic);
+    }
+
+    public function editTopic(EditTopicFormRequest $request, Topic $topic): TopicResource
+    {
+        $topic->update($request->validated());
+
+        return new TopicResource($topic);
+    }
+
+    public function deactivateActivateTopic(Topic $topic): JsonResponse
+    {
+        if ($topic->status === Topic::INACTIVE_STATUS) {
+            if (is_null($topic->theory)) {
+                $text = 'Теория обязательна перед публикацией!';
+            } elseif (is_null($topic->price_usd)) {
+                $text = 'Цена в USD обязательна перед публикаций!';
+            } elseif (is_null($topic->price_rub)) {
+                $text = 'Цена в RUB обязательна перед публикацией!';
+            } elseif (is_null($topic->price_won)) {
+                $text = 'Цена в WON обязательна перед публикацией!';
+            } elseif (is_null($topic->deadline_offset)) {
+                $text = 'Срок сдачи ДЗ (в днях) обязательно для заполнения!';
+            } elseif (is_null($topic->evaluation_type)) {
+                $text = 'Тип оценки обязательно для заполнения';
+            } elseif (in_array($topic->evaluation_type, [Topic::EVALUATION_SCORE_TYPE, Topic::EVALUATION_PASS_PERCENTAGE_TYPE])) {
+                if(is_null($topic->evaluation_min)) {
+                    $text = 'Минимальная оценка обязательна для заполнения';
+                } elseif (is_null($topic->evaluation_max)) {
+                    $text = 'Максимальная оценка обязательна для заполнения';
+                }
+            }
+
+            if (isset($text)) {
+                return response()->json(['text' => $text]);
+            }
+        }
+
+        $topic->status = $topic->status === Topic::ACTIVE_STATUS ? Topic::INACTIVE_STATUS : Topic::ACTIVE_STATUS;
+        $topic->save();
+
+        return response()->json();
+    }
+
+    public function deleteTopic(Topic $topic)
+    {
+        //
+    }
+
+    public function calendarTopics()
     {
 
     }
 
     public function addTopicToDay()
-    {
-
-    }
-
-    public function createTopic()
-    {
-
-    }
-
-    public function editTopic()
-    {
-
-    }
-
-    public function deleteTopic()
-    {
-
-    }
-
-    public function deactivateActivateTopic()
     {
 
     }
