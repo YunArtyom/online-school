@@ -256,13 +256,13 @@ class LessonController extends Controller
     public function setTopicToCalendarDay(Calendar $calendar, Topic $topic): JsonResponse
     {
         //Разрешить множественное присвоение одной и тойже темы куда угодно, кроме одного дня
-        $exist = Schedule::where('calendar_day_id', $calendar->id)
+        $schedule = Schedule::where('calendar_day_id', $calendar->id)
             ->where('topic_id', $topic->id)
             ->where('grade_id', $topic->grade_id)
             ->where('subject_id', $topic->subject_id)
-            ->exist();
+            ->first();
 
-        if ($exist) {
+        if (!is_null($schedule)) {
             $text = 'Данная тема уже присвоена к этому дню!';
         } elseif (is_null($topic->theory)) {
             $text = 'Теория обязательна перед присвоением!';
