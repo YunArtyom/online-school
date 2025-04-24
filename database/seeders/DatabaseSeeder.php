@@ -13,6 +13,7 @@ class DatabaseSeeder extends Seeder
             GradeSeeder::class,
             SubjectSeeder::class,
             SubjectTeacherSeeder::class,
+            CalendarSeeder::class,
         ]);
     }
 }

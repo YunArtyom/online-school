@@ -57,11 +57,20 @@ Route::prefix('lesson')->middleware('auth:sanctum')->group(function () {
     });
 
     Route::prefix('topics')->middleware('isDirector')->group(function () {
+        Route::get('/', [LessonController::class, 'topics']);
+        Route::get('/free', [LessonController::class, 'freeTopicsForSetting']);
         Route::post('/', [LessonController::class, 'createTopic']);
         Route::put('/{topic}', [LessonController::class, 'editTopic']);
         Route::put('/deactivate-activate/{topic}', [LessonController::class, 'deactivateActivateTopic']);
-        Route::delete('/{topic}', [LessonController::class, 'deleteTopic']);
-        Route::get('/calendar', [LessonController::class, 'calendarTopics']);
+        //Route::delete('/{topic}', [LessonController::class, 'deleteTopic']);
+
+        Route::prefix('calendar')->middleware('isDirector')->group(function () {
+            Route::get('/', [LessonController::class, 'calendarWithTopics']);
+            Route::get('/{calendar}', [LessonController::class, 'calendarDay']);
+            Route::put('/{calendar}', [LessonController::class, 'editCalendarDay']);
+            Route::post('/{calendar}/set-topic/{topic}', [LessonController::class, 'setTopicToCalendarDay']);
+            Route::post('/{calendar}/unset-topic/{topic}', [LessonController::class, 'unsetTopicToCalendarDay']);
+        });
     });
 });
 

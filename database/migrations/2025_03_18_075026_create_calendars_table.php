@@ -10,11 +10,10 @@ return new class extends Migration
     {
         Schema::create('calendar', function (Blueprint $table) {
             $table->id();
-            $table->string('date');
+            $table->date('date');
             $table->string('day_of_week');
             $table->boolean('is_weekend');
             $table->boolean('is_holiday');
-            $table->string('note')->nullable();
             $table->timestamps();
         });
     }

@@ -11,10 +11,13 @@ return new class extends Migration
     {
         Schema::create('schedules', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('calendar_id')->constrained('calendar');
+            $table->foreignId('calendar_day_id')->constrained('calendar');
             $table->foreignId('topic_id')->constrained('topics');
             $table->foreignId('grade_id')->constrained('grades');
+            $table->foreignId('subject_id')->constrained('subjects');
             $table->timestamps();
+
+            $table->unique(['calendar_day_id', 'topic_id', 'grade_id', 'subject_id']);
         });
     }
 

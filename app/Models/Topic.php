@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 
 class Topic extends Model
@@ -23,4 +24,10 @@ class Topic extends Model
     ];
 
     //В оценку ДЗ нужно сохранять тип оценки, вдруг тип оценки для темы будет изменен в процессе
+
+    public function schedule(): HasOne
+    {
+        //has one - только одно присвоение темы ко дню/классу. Если больше - hasMany
+        return $this->hasOne(Schedule::class, 'topic_id', 'id');
+    }
 }

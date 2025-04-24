@@ -51,13 +51,12 @@ class CalendarSeeder extends Seeder
             $isWeekend = $start->isWeekend(); // Суббота или воскресенье
 
             $data[] = [
-                'date'         => $start->toDateString(),
-                'day_of_week'  => $start->translatedFormat('l'),
-                'is_weekend'   => $isWeekend,
-                'is_holiday'   => $isHoliday,
-                'note'         => null,
-                'created_at'   => now(),
-                'updated_at'   => now(),
+                'date'                  => $start->toDateString(),
+                'day_of_week'           => $start->translatedFormat('l'),
+                'is_weekend'            => $isWeekend,
+                'is_holiday'            => $isHoliday,
+                'created_at'            => now(),
+                'updated_at'            => now(),
             ];
 
             $start->addDay();

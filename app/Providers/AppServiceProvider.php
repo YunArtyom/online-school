@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\AdditionalMaterial;
+use App\Models\Calendar;
 use App\Models\Grade;
 use App\Models\Notification;
 use App\Models\Subject;
@@ -49,6 +50,10 @@ class AppServiceProvider extends ServiceProvider
 
         Route::bind('topic', function (string $value) {
             return Topic::where('id', $value)->firstOrFail();
+        });
+
+        Route::bind('calendar', function (string $value) {
+            return Calendar::where('id', $value)->firstOrFail();
         });
     }
 }

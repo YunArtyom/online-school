@@ -3,18 +3,27 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CalendarTopicsFormRequest;
 use App\Http\Requests\CreateSubjectFormRequest;
+use App\Http\Requests\EditCalendarDayFormRequest;
 use App\Http\Requests\EditGradeFormRequest;
 use App\Http\Requests\EditSubjectFormRequest;
 use App\Http\Requests\Topic\CreateTopicFormRequest;
 use App\Http\Requests\Topic\EditTopicFormRequest;
+use App\Http\Requests\Topic\TopicsFormRequest;
+use App\Http\Resources\Calendar\CalendarDayResource;
 use App\Http\Resources\Grades\GradeResource;
 use App\Http\Resources\Grades\GradesResource;
 use App\Http\Resources\Subjects\SubjectsResource;
 use App\Http\Resources\Teachers\FreeTeachersForSubjectResource;
 use App\Http\Resources\Teachers\TeachersBySubjectResource;
+use App\Http\Resources\Topics\CalendarDayTopicsResource;
+use App\Http\Resources\Topics\CalendarTopicsResource;
 use App\Http\Resources\Topics\TopicResource;
+use App\Http\Resources\Topics\TopicsResource;
+use App\Models\Calendar;
 use App\Models\Grade;
+use App\Models\Schedule;
 use App\Models\Subject;
 use App\Models\SubjectTeacher;
 use App\Models\Topic;
@@ -117,6 +126,35 @@ class LessonController extends Controller
         return response()->json();
     }
 
+    public function topics(TopicsFormRequest $request): AnonymousResourceCollection
+    {
+        $topics = Topic::where('subject_id', $request->subject_id)
+            ->where('grade_id', $request->grade_id)
+            ->withExists(['schedule as is_assigned' => function ($query) use($request) {
+                $query->where('grade_id', $request->grade_id)
+                    ->where('subject_id', $request->subject_id);
+            }])
+            ->orderBy('created_at')
+            ->get();
+
+        return TopicsResource::collection($topics);
+    }
+
+    public function calendarWithTopics(CalendarTopicsFormRequest $request): AnonymousResourceCollection
+    {
+        $calendar = Calendar::whereMonth('date', $request->month)
+            ->with([
+                'schedules' => function ($query) use ($request) {
+                    $query->where('grade_id', $request->grade_id)
+                        ->where('subject_id', $request->subject_id)
+                        ->with('topic');
+                }
+            ])
+            ->get();
+
+        return CalendarTopicsResource::collection($calendar);
+    }
+
     public function createTopic(CreateTopicFormRequest $request): TopicResource
     {
         $topic = Topic::create(['grade_id' => $request->grade_id, 'subject_id' => $request->subject_id,
@@ -172,28 +210,97 @@ class LessonController extends Controller
         //
     }
 
-    public function calendarTopics()
+    public function calendarDay(Calendar $calendar, TopicsFormRequest $request): CalendarDayResource
     {
+        $calendar->load([
+                'schedules' => function ($query) use ($request) {
+                    $query->where('grade_id', $request->grade_id)
+                        ->where('subject_id', $request->subject_id)
+                        ->with('topic');
+                }
+            ]);
 
+        return new CalendarDayResource($calendar);
     }
 
-    public function addTopicToDay()
-    {
 
+    public function editCalendarDay(Calendar $calendar, EditCalendarDayFormRequest $request): CalendarDayResource
+    {
+        $updateData = $request->validated();
+        unset($updateData['subject_id'], $updateData['grade_id']);
+        $calendar->update($updateData);
+
+        $calendar->load([
+            'schedules' => function ($query) use ($request) {
+                $query->where('grade_id', $request->grade_id)
+                    ->where('subject_id', $request->subject_id)
+                    ->with('topic');
+            }
+        ]);
+
+        return new CalendarDayResource($calendar);
     }
 
-    public function day()
+    public function freeTopicsForSetting(TopicsFormRequest $request)
     {
+        $usedTopicIds = Schedule::whereNotNull('topic_id')
+            ->pluck('topic_id');
 
+        $unassignedTopics = Topic::whereNotIn('id', $usedTopicIds)
+            ->orderBy('name')
+            ->get();
+
+        return CalendarDayTopicsResource::collection($unassignedTopics);
     }
 
-    public function editDay()
+    public function setTopicToCalendarDay(Calendar $calendar, Topic $topic): JsonResponse
     {
+        //Разрешить множественное присвоение одной и тойже темы куда угодно, кроме одного дня
+        $exist = Schedule::where('calendar_day_id', $calendar->id)
+            ->where('topic_id', $topic->id)
+            ->where('grade_id', $topic->grade_id)
+            ->where('subject_id', $topic->subject_id)
+            ->exist();
 
+        if ($exist) {
+            $text = 'Данная тема уже присвоена к этому дню!';
+        } elseif (is_null($topic->theory)) {
+            $text = 'Теория обязательна перед присвоением!';
+        } elseif (is_null($topic->price_usd)) {
+            $text = 'Цена в USD обязательна перед присвоением!';
+        } elseif (is_null($topic->price_rub)) {
+            $text = 'Цена в RUB обязательна перед присвоением!';
+        } elseif (is_null($topic->price_won)) {
+            $text = 'Цена в WON обязательна перед присвоением!';
+        } elseif (is_null($topic->deadline_offset)) {
+            $text = 'Срок сдачи ДЗ (в днях) обязательно перед присвоением!';
+        } elseif (is_null($topic->evaluation_type)) {
+            $text = 'Тип оценки обязательно для присвоением';
+        } elseif (in_array($topic->evaluation_type, [Topic::EVALUATION_SCORE_TYPE, Topic::EVALUATION_PASS_PERCENTAGE_TYPE])) {
+            if(is_null($topic->evaluation_min)) {
+                $text = 'Минимальная оценка обязательна перед присвоением';
+            } elseif (is_null($topic->evaluation_max)) {
+                $text = 'Максимальная оценка обязательна перед присвоением';
+            }
+        }
+
+        if (isset($text)) {
+            return response()->json(['text' => $text]);
+        }
+
+        Schedule::create(['calendar_day_id' => $calendar->id, 'topic_id' => $topic->id, 'grade_id' => $topic->grade_id, 'subject_id' => $topic->subject_id]);
+
+        return response()->json(status: 201);
     }
 
-    public function calendar()
+    public function unsetTopicToCalendarDay(Calendar $calendar, Topic $topic): JsonResponse
     {
+        Schedule::where('calendar_day_id', $calendar->id)
+            ->where('topic_id', $topic->id)
+            ->where('grade_id', $topic->grade_id)
+            ->where('subject_id', $topic->subject_id)
+            ->delete();
 
+        return response()->json();
     }
 }
