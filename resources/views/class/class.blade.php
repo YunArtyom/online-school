@@ -30,6 +30,7 @@
     @include('class.popups.teachers')
     @include('class.popups.addSubj')
     @include('class.popups.sure')
+    @include('class.popups.sure2')
     @include('class.popups.price')
     @include('class.popups.date')
 @endsection

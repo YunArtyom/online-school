@@ -1,6 +1,6 @@
 <div class="popup" id="popup8">
     <div class="popup-content-noadaptive">
-        <button class="close-sidebar11">✖</button>
+        <button class="close-sidebar16">✖</button>
         <h2>Редактирование</h2>
         <div class="popup-buttons">
             <p>Цена</p>
@@ -79,7 +79,7 @@
     const openPopupButton8 = document.getElementById('open-popup8');
 
     const popup8 = document.getElementById('popup8');
-    const closePopupButton8 = document.querySelector('.close-sidebar11');
+    const closePopupButton8 = document.querySelector('.close-sidebar16');
 
     openPopupButton8.addEventListener('click', () => {
         popup8.style.display = 'flex'; // Показываем поп-ап

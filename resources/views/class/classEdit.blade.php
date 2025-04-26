@@ -210,7 +210,7 @@
 
                 <button class="submit-button-green">Ученики класса</button>
                 <button class="submit-button-blue" onclick="window.location.href='/calendar'">Календарь класса</button>
-                <button class="submit-button-yellow">Снять с продажи</button>
+                <button class="submit-button-yellow" id="open-popup34">Снять с продажи</button>
                 <button class="submit-button-green">Выставить на продажу</button>
 
                 <div class="homeWork-section-span-check">
