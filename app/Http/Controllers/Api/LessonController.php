@@ -155,6 +155,11 @@ class LessonController extends Controller
         return CalendarTopicsResource::collection($calendar);
     }
 
+    public function topic(Topic $topic): TopicResource
+    {
+        return new TopicResource($topic);
+    }
+
     public function createTopic(CreateTopicFormRequest $request): TopicResource
     {
         $topic = Topic::create(['grade_id' => $request->grade_id, 'subject_id' => $request->subject_id,

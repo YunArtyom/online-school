@@ -59,6 +59,7 @@ Route::prefix('lesson')->middleware('auth:sanctum')->group(function () {
     Route::prefix('topics')->middleware('isDirector')->group(function () {
         Route::get('/', [LessonController::class, 'topics']);
         Route::get('/free', [LessonController::class, 'freeTopicsForSetting']);
+        Route::get('/{topic}', [LessonController::class, 'topic']);
         Route::post('/', [LessonController::class, 'createTopic']);
         Route::put('/{topic}', [LessonController::class, 'editTopic']);
         Route::put('/deactivate-activate/{topic}', [LessonController::class, 'deactivateActivateTopic']);
