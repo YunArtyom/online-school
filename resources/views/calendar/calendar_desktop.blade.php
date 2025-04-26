@@ -12,7 +12,6 @@
                     <div class="lesson">{{ $schedule->topic->name }}</div>
                 @empty
                     <div class="no-lessons">Нет тем/нет урока</div>
-                    <div class="lesson-homework">Дата сдачи ДЗ</div>
                 @endforelse
             </div>
         </div>
