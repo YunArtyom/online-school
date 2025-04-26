@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация</title>
+    <link rel="stylesheet" href="../../assets/css/register.css">
+</head>
+
+<body>
+    <div class="logo">Логотип</div> <!-- Reuse logo div from login -->
+
+    <div class="register-container"> <!-- Use specific container class -->
+        <form class="register-form" novalidate> <!-- Add novalidate -->
+            <h1>Регистрация</h1>
+
+            <div class="form-group">
+                <label for="name">ФИО</label>
+                <input type="text" id="name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="country">Страна</label>
+                <select id="country" required>
+                    <option value="" disabled selected>выбрать</option> <!-- Placeholder option -->
+                    <option value="ru">Россия</option>
+                    <option value="by">Беларусь</option>
+                    <option value="kz">Казахстан</option>
+                    <!-- Add more countries as needed -->
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="age">Возраст</label>
+                <input type="text" id="age" required> <!-- Change type to text -->
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Пароль</label>
+                <input type="password" id="password" required>
+            </div>
+
+            <div class="form-group">
+                <label for="confirm-password">Подтвердите пароль</label>
+                <input type="password" id="confirm-password" required>
+            </div>
+
+            <div class="form-group checkbox-group">
+                <input type="checkbox" id="policy" required>
+                <label for="policy">Я ознакомлен (а) с <a href="#">Политикой конфиденциальности</a> и согласен (а) на
+                    обработку персональных данных</label>
+            </div>
+
+            <button type="submit">Войти</button> <!-- Button text from image -->
+
+        </form>
+    </div>
+</body>
+
+</html>

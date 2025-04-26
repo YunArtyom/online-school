@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Учителя</title>
+    <!-- Подключаем CSS -->
+    <link rel="stylesheet" href="../../assets/css/sidebar.css">
+    <!-- <link rel="stylesheet" href="../../assets/css/MainPage.css"> -->
+    <link rel="stylesheet" href="../../assets/css/teachers.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Vela+Sans+GX:wght@400;700&display=swap">
+</head>
+
+<body>
+    <div class="wrapper">
+        <!-- Сайдбар (скопирован из MainPage.html) -->
+        <button class="toggle-sidebar">≡</button>
+        <div class="option_sidebar_wrapper">
+            <button class="close-sidebar">✖</button>
+            <!-- Главная страница -->
+            <div class="sidebar-item sidebar-item_main">
+                <a href="../MainPage.html">
+                    <div class="sidebar-content">
+                        <span class="sidebar-text">Главная страница</span>
+                    </div>
+                </a>
+            </div>
+            <!-- Элементы сайдбара для страницы Учителя (иконки из teacherPage.html) -->
+            <div class="sidebar-items">
+                <div class="sidebar-item">
+                    <a href="#">
+                        <div class="sidebar-content">
+                            <div class="sidebar-icon">
+                                <img src="../../assets/image/bakalavr.svg" alt="Успеваемость учеников">
+                                <!-- Updated icon path -->
+                            </div>
+                            <span class="sidebar-text">Успеваемость учеников</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="sidebar-item">
+                    <a href="#">
+                        <div class="sidebar-content">
+                            <div class="sidebar-icon">
+                                <img src="../../assets/image/pen.svg" alt="Успеваемость учителей">
+                                <!-- Updated icon path -->
+                            </div>
+                            <span class="sidebar-text">Успеваемость учителей</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="sidebar-item">
+                    <a href="#">
+                        <div class="sidebar-content">
+                            <div class="sidebar-icon">
+                                <img src="../../assets/image/plus.svg" alt="Дополнительный материал">
+                                <!-- Updated icon path -->
+                            </div>
+                            <span class="sidebar-text">Дополнительный материал</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="sidebar-item">
+                    <a href="#">
+                        <div class="sidebar-content">
+                            <div class="sidebar-icon">
+                                <img src="../../assets/image/pen.svg" alt="Ученики"> <!-- Updated icon path -->
+                            </div>
+                            <span class="sidebar-text">Ученики</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="sidebar-item sidebar-item_active"> <!-- Активный элемент Учителя -->
+                    <a href="#">
+                        <div class="sidebar-content">
+                            <div class="sidebar-icon">
+                                <img src="../../assets/image/pen.svg" alt="Учителя">
+                                <!-- Updated icon path (assuming pen is correct) -->
+                            </div>
+                            <span class="sidebar-text">Учителя</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="sidebar-item">
+                    <a href="#">
+                        <div class="sidebar-content">
+                            <div class="sidebar-icon">
+                                <img src="../../assets/image/material.svg" alt="Материал"> <!-- Updated icon path -->
+                            </div>
+                            <span class="sidebar-text">Материал</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="sidebar-item">
+                    <a href="#">
+                        <div class="sidebar-content">
+                            <div class="sidebar-icon">
+                                <img src="../../assets/image/calendar.svg" alt="Календарь"> <!-- Updated icon path -->
+                            </div>
+                            <span class="sidebar-text">Календарь</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="sidebar-item">
+                    <a href="#">
+                        <div class="sidebar-content">
+                            <div class="sidebar-icon">
+                                <img src="../../assets/image/setting.svg" alt="Настройки"> <!-- Updated icon path -->
+                            </div>
+                            <span class="sidebar-text">Настройки</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Обертка для основного контента с min-width -->
+        <div class="content-wrapper">
+            <!-- Основной контент страницы Учителя -->
+            <div class="main-content">
+                <!-- Отдельный заголовок страницы -->
+                <h1 class="page-title">Учителя</h1>
+
+                <!-- Контейнер для фильтров и кнопки -->
+                <header class="teachers-controls">
+                    <div class="filters">
+                        <span class="filter-item">ФИО: Мягкий Иван Евгеньевич</span> <!-- Updated name -->
+                        <span class="filter-item">Класс: все</span>
+                    </div>
+                    <button class="add-teacher-btn">Добавить учителя</button>
+                </header>
+
+                <div class="teachers-table">
+                    <div class="table-header">
+                        <div class="table-cell">Учитель</div>
+                        <div class="table-cell">Тип/класс</div>
+                        <div class="table-cell">Зарегистрирован</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-cell">Мягкий Иван Евгеньевич</div>
+                        <div class="table-cell">8 класс + частичный</div>
+                        <div class="table-cell">2024.08.08</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-cell">Мягкий Иван Евгеньевич</div> <!-- Updated name -->
+                        <div class="table-cell">Частичный</div>
+                        <div class="table-cell">2024.08.08</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-cell">Мягкий Иван Евгеньевич</div> <!-- Updated name -->
+                        <div class="table-cell">1 класс</div>
+                        <div class="table-cell">2024.08.08</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-cell">Мягкий Иван Евгеньевич</div> <!-- Updated name -->
+                        <div class="table-cell">Нет</div>
+                        <div class="table-cell">2024.08.08</div>
+                    </div>
+                    <!-- Добавьте больше строк по необходимости -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Подключаем JS для сайдбара -->
+    <script src="../../assets/js/sidebar.js"></script>
+</body>
+
+</html>

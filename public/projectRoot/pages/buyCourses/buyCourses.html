@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Купить полный курс</title>
+    <link rel="stylesheet" href="../../assets/css/sidebar.css">
+    <link rel="stylesheet" href="../../assets/css/buyCourses.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Vela+Sans+GX:wght@400;700&display=swap">
+</head>
+
+<body>
+    <script src="../../assets/js/openClose.js"></script>
+    <script src="../../assets/js/sidebar.js"></script>
+    <div class="wrapper">
+        <!-- Сайдбар -->
+        <button class="toggle-sidebar">≡</button>
+        <div class="option_sidebar_wrapper">
+
+            <button class="close-sidebar">✖</button>
+            <!-- Главная страница -->
+            <div class="sidebar-item_main">
+                <div class="sidebar-content">
+                    <span class="sidebar-text">Главная страница</span>
+                </div>
+            </div>
+            <!-- Остальные элементы сайдбара -->
+            <div class="sidebar-items">
+                <div class="sidebar-item">
+                    <a href="#">
+                        <div class="sidebar-content">
+                            <div class="sidebar-icon">
+                                <img src="../../assets/image/pen.svg" alt="Мои курсы">
+                            </div>
+                            <span class="sidebar-text">Мои курсы</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="sidebar-item">
+                    <a href="#">
+                        <div class="sidebar-content">
+                            <div class="sidebar-icon">
+                                <img src="../../assets/image/calendar.svg" alt="Календарь">
+                            </div>
+                            <span class="sidebar-text">Календарь</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="sidebar-item">
+                    <a href="#">
+                        <div class="sidebar-content">
+                            <div class="sidebar-icon">
+                                <img src="../../assets/image/star.svg" alt="Успеваемость">
+                            </div>
+                            <span class="sidebar-text">Успеваемость</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="sidebar-item">
+                    <a href="#">
+                        <div class="sidebar-content">
+                            <div class="sidebar-icon">
+                                <img src="../../assets/image/plus.svg" alt="Еще курсы">
+                            </div>
+                            <span class="sidebar-text">Еще курсы</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="sidebar-item">
+                    <a href="#">
+                        <div class="sidebar-content">
+                            <div class="sidebar-icon">
+                                <img src="../../assets/image/plus.svg" alt="Доп. материал">
+                            </div>
+                            <span class="sidebar-text">Доп. материал</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="sidebar-item">
+                    <a href="#">
+                        <div class="sidebar-content">
+                            <div class="sidebar-icon">
+                                <img src="../../assets/image/setting.svg" alt="Настройки">
+                            </div>
+                            <span class="sidebar-text">Настройки</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="sidebar-item">
+                    <a href="#">
+                        <div class="sidebar-content">
+                            <div class="sidebar-icon">
+                                <img src="../../assets/image/question.svg" alt="Частые вопросы">
+                            </div>
+                            <span class="sidebar-text">Частые вопросы</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-wrapper">
+            <div class="buy-courses-content">
+                <header class="buy-courses-header">
+                    <div class="buy-courses-header-text">Купить курс</div>
+                </header>
+
+                <div class="buy-courses-notifications">
+                    <div class="buy-courses-body">
+                        <div class="breadcrumb">
+                            <div class="breadcrumb_option">
+                                Полный курс предмета
+                            </div>
+                            <div class="breadcrumb_option">
+                                <img src="../../assets/image/arrow.svg" alt="arrow">
+                                8 класс
+                            </div>
+                            <div class="breadcrumb_option">
+                                <img src="../../assets/image/arrow.svg" alt="arrow">
+                                7 предметов
+                            </div>
+                            <div class="breadcrumb_option">
+                                <img src="../../assets/image/arrow.svg" alt="arrow">
+                                Выбор разделов
+                            </div>
+                        </div>
+                        <div class="courses-header">
+                            <h2>4. Выберите один или несколько разделов по предметам</h2>
+                        </div>
+                        <div class="courses-section">
+                            <!-- Algebra Section -->
+                            <div class="course-category">
+                                <div class="course-category-header" onclick="toggleCategory(this)">
+                                    Алгебра
+                                    <img class="icon_openClose" src="../../assets/image/checkOpen.svg"
+                                        alt="Галочка открытия и закрытия">
+                                </div>
+                                <div class="course-category-body">
+                                    <div class="course-item desktop">
+                                        <span class="course-name">Умножение</span>
+                                        <a class="href-info desktop" href="#">Узнать подробнее</a>
+                                        <span class="course-price">800.000</span>
+                                        <input type="checkbox" class="course-checkbox">
+                                    </div>
+                                    <div class="course-item desktop">
+                                        <span class="course-name">Деление</span>
+                                        <a class="href-info desktop" href="#">Узнать подробнее</a>
+                                        <span class="course-price">800.000</span>
+                                        <input type="checkbox" class="course-checkbox">
+                                    </div>
+                                    <div class="course-item desktop">
+                                        <span class="course-name">Формулы</span>
+                                        <a class="href-info desktop" href="#">Узнать подробнее</a>
+                                        <span class="course-price">800.000</span>
+                                        <input type="checkbox" class="course-checkbox">
+                                    </div>
+                                    <div class="course-item desktop">
+                                        <span class="course-name">Расчет площади</span>
+                                        <a class="href-info desktop" href="#">Узнать подробнее</a>
+                                        <span class="course-price">800.000</span>
+                                        <input type="checkbox" class="course-checkbox">
+                                    </div>
+                                    <div class="course-item mobile">
+                                        <div class="course-info">
+                                            <span class="course-name">Умножение</span>
+                                            <div class="course-price-checkbox">
+                                                <span class="course-price">800.000</span>
+                                                <input type="checkbox" class="course-checkbox">
+                                            </div>
+                                        </div>
+                                        <a class="href-info mobile" href="#">Подробнее</a>
+                                    </div>
+                                    <div class="course-item mobile">
+                                        <div class="course-info">
+                                            <span class="course-name">Деление</span>
+                                            <div class="course-price-checkbox">
+                                                <span class="course-price">800.000</span>
+                                                <input type="checkbox" class="course-checkbox">
+                                            </div>
+                                        </div>
+                                        <a class="href-info mobile" href="#">Подробнее</a>
+                                    </div>
+                                    <div class="course-item mobile">
+                                        <div class="course-info">
+                                            <span class="course-name">Формулы</span>
+                                            <div class="course-price-checkbox">
+                                                <span class="course-price">800.000</span>
+                                                <input type="checkbox" class="course-checkbox">
+                                            </div>
+                                        </div>
+                                        <a class="href-info mobile" href="#">Подробнее</a>
+                                    </div>
+                                    <div class="course-item mobile">
+                                        <div class="course-info">
+                                            <span class="course-name">Расчет площади</span>
+                                            <div class="course-price-checkbox">
+                                                <span class="course-price">800.000</span>
+                                                <input type="checkbox" class="course-checkbox">
+                                            </div>
+                                        </div>
+                                        <a class="href-info mobile" href="#">Подробнее</a>
+                                    </div>
+                                    <!-- Add other course items similarly -->
+                                </div>
+                            </div>
+                            <!-- Russian Language Section -->
+                            <div class="course-category">
+                                <div class="course-category-header" onclick="toggleCategory(this)">
+                                    Русский язык
+                                    <img class="icon_openClose" src="../../assets/image/checkOpen.svg"
+                                        alt="Галочка открытия и закрытия">
+                                </div>
+                                <div class="course-category-body">
+                                    <div class="course-item desktop">
+                                        <span class="course-name">Как писать сочинения</span>
+                                        <a class="href-info desktop" href="#">Узнать подробнее</a>
+                                        <a class="href-info mobile" href="#">Подробнее</a>
+                                        <span class="course-price">800.000</span>
+                                        <input type="checkbox" class="course-checkbox">
+                                    </div>
+                                    <div class="course-item desktop">
+                                        <span class="course-name">Члены предложения</span>
+                                        <a class="href-info desktop" href="#">Узнать подробнее</a>
+                                        <a class="href-info mobile" href="#">Подробнее</a>
+                                        <span class="course-price">800.000</span>
+                                        <input type="checkbox" class="course-checkbox">
+                                    </div>
+                                    <div class="course-item mobile">
+                                        <div class="course-info">
+                                            <span class="course-name">Как писать сочинения</span>
+                                            <div class="course-price-checkbox">
+                                                <span class="course-price">800.000</span>
+                                                <input type="checkbox" class="course-checkbox">
+                                            </div>
+                                        </div>
+                                        <a class="href-info mobile" href="#">Подробнее</a>
+                                    </div>
+                                    <div class="course-item mobile">
+                                        <div class="course-info">
+                                            <span class="course-name">Члены предложения</span>
+                                            <div class="course-price-checkbox">
+                                                <span class="course-price">800.000</span>
+                                                <input type="checkbox" class="course-checkbox">
+                                            </div>
+                                        </div>
+                                        <a class="href-info mobile" href="#">Подробнее</a>
+                                    </div>
+                                    <!-- Add other course items similarly -->
+                                </div>
+                            </div>
+                            <!-- Total and Action Buttons -->
+                            <div class="courses-summary">
+                                <p>Итого: 29 разделов по 7 курсам</p>
+                                <p>Стоимость: 900.000</p>
+                                <div class="action-buttons">
+                                    <button class="btn-back">Назад</button>
+                                    <button class="btn-buy">Купить</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

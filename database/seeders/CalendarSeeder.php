@@ -55,6 +55,7 @@ class CalendarSeeder extends Seeder
                 'day_of_week'           => $start->translatedFormat('l'),
                 'is_weekend'            => $isWeekend,
                 'is_holiday'            => $isHoliday,
+                'note'                  => null,
                 'created_at'            => now(),
                 'updated_at'            => now(),
             ];

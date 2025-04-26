@@ -1,0 +1,278 @@
+/* === Стили для обертки контента (из teachers.css) === */
+.content-wrapper {
+    flex-grow: 1;
+    overflow-x: auto;
+    min-width: 750px;
+    /* Оставляем как в teachers/students */
+    overflow-y: auto;
+    position: relative;
+}
+
+/* Стили для основного контента */
+.main-content {
+    padding: 30px 45px;
+    box-sizing: border-box;
+    min-width: 550px;
+    max-width: 1200px;
+    /* Оставляем как в teachers/students */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Отдельный заголовок страницы */
+.page-title {
+    font-size: 32px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+    padding-left: 0;
+}
+
+/* Стили для фильтров */
+.material-filters {
+    display: flex;
+    gap: 20px;
+    /* Отступ между фильтрами */
+    margin-bottom: 30px;
+    /* Отступ до сетки */
+    flex-wrap: wrap;
+    /* Перенос на мобильных */
+}
+
+.filter-select-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    /* Отступ между label и select */
+}
+
+.filter-select-wrapper label {
+    font-size: 15px;
+    color: #333;
+    white-space: nowrap;
+}
+
+.filter-select {
+    background-color: #F2F5FC;
+    /* Фон как у filter-item */
+    border: none;
+    padding: 8px 30px 8px 15px;
+    /* Паддинг справа для стрелки */
+    border-radius: 10px;
+    font-size: 15px;
+    color: #333;
+    font-family: 'VelaSansGX', sans-serif;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%23333" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
+    /* Стрелка вниз */
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    min-width: 150px;
+    /* Минимальная ширина селекта */
+}
+
+/* Стили для сетки материалов */
+.material-grid {
+    display: grid;
+    /* Изменим minmax, чтобы влезало ~4-5 карточек */
+    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+    gap: 25px;
+}
+
+/* Стили для карточек */
+.material-card {
+    background-color: #F2F5FC;
+    /* Фон нижней части */
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.07);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+}
+
+.material-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card-image {
+    height: 130px;
+    /* Еще немного увеличена высота картинки */
+    background-color: #5DB561;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Стилизуем изображение внутри карточки */
+.card-image img {
+    width: 100%;
+    /* SVG будет растягиваться */
+    height: auto;
+    /* Сохраняем пропорции */
+    position: absolute;
+    /* Позиционируем для эффекта волны, если нужно */
+    bottom: 0;
+    /* Прижимаем к низу */
+    left: 0;
+    opacity: 0.5;
+    /* Примерная прозрачность для волны */
+}
+
+.card-title {
+    padding: 20px 20px 40px 20px;
+    /* Оставляем отступы */
+    font-size: 16px;
+    /* Увеличен шрифт */
+    font-weight: 700;
+    /* Увеличена жирность */
+    color: #333;
+    text-align: left;
+    flex-grow: 1;
+}
+
+/* Стили для карточки добавления */
+.add-card {
+    background-color: #F2F5FC;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 190px;
+    /* Увеличена высота (подгоняем под остальные) */
+    box-shadow: none;
+}
+
+.add-card:hover {
+    background-color: #e8edf5;
+    transform: none;
+    box-shadow: none;
+}
+
+.add-icon {
+    width: 60px;
+    height: 60px;
+    background-color: #5DB561;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 36px;
+    line-height: 1;
+}
+
+/* Адаптивность (копируем из teachers/students.css и адаптируем) */
+@media (max-width: 1100px) {
+    /* Показываем кнопки управления сайдбаром - стили перенесены в sidebar.css */
+    /* .toggle-sidebar { ... } */
+    /* .close-sidebar { ... } */
+
+    /* Адаптируем контент при скрытом сайдбаре */
+    .content-wrapper {
+        min-width: 0;
+        overflow-x: auto;
+    }
+
+    .main-content {
+        padding: 20px;
+        min-width: 0;
+        max-width: none;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .page-title {
+        font-size: 28px;
+    }
+
+    .material-filters {
+        gap: 15px;
+        /* Уменьшаем отступ */
+        margin-bottom: 25px;
+    }
+
+    .material-grid {
+        /* Вернем на ~4 колонки */
+        grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+        gap: 20px;
+    }
+
+    /* Высота карточек уменьшится пропорционально */
+    .add-card {
+        min-height: 170px;
+        /* Скорректируем */
+    }
+
+    .card-image {
+        height: 110px;
+        /* Скорректируем */
+    }
+}
+
+/* Дополнительные стили для совсем маленьких экранов */
+@media (max-width: 480px) {
+    .main-content {
+        padding: 15px;
+    }
+
+    .page-title {
+        font-size: 24px;
+    }
+
+    .material-filters {
+        flex-direction: column;
+        /* Фильтры друг под другом */
+        align-items: stretch;
+        /* Растягиваем по ширине */
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+
+    .filter-select-wrapper {
+        justify-content: space-between;
+        /* Label слева, Select справа */
+    }
+
+    .filter-select {
+        min-width: 0;
+        /* Убираем мин ширину */
+        flex-grow: 1;
+        /* Занимает доступное место */
+        font-size: 14px;
+    }
+
+    .material-grid {
+        /* ~2-3 колонки */
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 15px;
+    }
+
+    .card-image {
+        height: 90px;
+        /* Оставим */
+    }
+
+    .card-title {
+        padding: 15px;
+        font-size: 15px;
+        /* Чуть крупнее для мобилки */
+    }
+
+    .add-card {
+        min-height: 150px;
+        /* Скорректируем */
+    }
+
+    .add-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 30px;
+    }
+}

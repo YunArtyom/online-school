@@ -1,0 +1,201 @@
+@font-face {
+    font-family: 'VelaSansGX';
+    src: url('../fonts/velasansgx-extralight.woff2') format('woff2'),
+        url('../fonts/velasansgx-extralight.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'VelaSansGX', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #FDFBFF;
+    /* Light gray background */
+    margin: 0;
+    position: relative;
+    /* Needed for absolute positioning of logo */
+}
+
+.logo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: #ccc;
+    /* Gray background */
+    color: #333;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+    /* Add padding for smaller screens */
+    box-sizing: border-box;
+}
+
+.login-form {
+    background-color: #fff;
+    padding: 30px 40px 40px 40px;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 360px;
+    /* Reduced max-width */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-size: 30px;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    box-sizing: border-box;
+    font-size: 1em;
+    background-color: #F8F8FB;
+}
+
+/* Add focus style for better UX */
+.form-group input:focus {
+    outline: 2px solid #4536F5;
+    /* Apply outline only on focus */
+}
+
+button[type="submit"],
+.create-account-btn {
+    width: 100%;
+    padding: 10px 32px 12px 32px;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.1em;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+    box-sizing: border-box;
+}
+
+button[type="submit"] {
+    background-color: #4536F5;
+    width: 100%;
+}
+
+button[type="submit"]:hover {
+    background-color: #3125b1;
+}
+
+.create-account-btn {
+    background-color: #5DB561;
+}
+
+.create-account-btn:hover {
+    background-color: #4CAF50;
+}
+
+.links-container {
+    margin-top: 25px;
+    display: flex;
+    justify-content: space-between;
+    /* Default for desktop */
+    align-items: center;
+}
+
+.forgot-password,
+.teacher-link {
+    color: #504D52;
+    text-decoration: none;
+    font-size: 0.9em;
+}
+
+.forgot-password:hover,
+.teacher-link:hover {
+    text-decoration: underline;
+}
+
+.teacher-link {
+    text-decoration: underline;
+    /* Always underlined */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+
+    /* Adjust breakpoint if needed */
+    .logo {
+        display: none;
+        /* Hide logo on smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        /* Add rule to change body background on mobile */
+        background-color: #F2F5FC;
+    }
+
+    .login-form {
+        padding: 30px;
+        box-shadow: none;
+        /* Remove shadow on mobile */
+        border-radius: 20px;
+        /* Updated border radius */
+        max-width: 360px;
+        /* Keep reduced max-width or adjust for mobile specifically */
+    }
+
+    h1 {
+        font-size: 28px;
+        margin-bottom: 15px;
+    }
+
+    .form-group input,
+    button[type="submit"],
+    .create-account-btn {
+        padding: 10px;
+        font-size: 1em;
+        border-radius: 10px;
+        /* Updated border radius */
+        width: 100%;
+        /* Ensure buttons are full-width on mobile */
+    }
+
+    button[type="submit"] {
+        padding: 10px 32px 12px 32px;
+        margin-top: 20px;
+        width: 100%;
+        /* align-self: initial; */
+        /* No longer needed as it's always 100% width */
+    }
+
+    .create-account-btn {
+        padding: 10px 32px 12px 32px;
+        margin-top: 10px;
+    }
+
+    .links-container {
+        justify-content: space-around;
+        margin-top: 25px;
+        /* Increased top margin */
+    }
+}

@@ -1,0 +1,173 @@
+/* === Стили для обертки контента === */
+.content-wrapper {
+    flex-grow: 1;
+    overflow-x: auto;
+    min-width: 750px;
+    overflow-y: auto;
+    position: relative;
+}
+
+/* Стили для основного контента */
+.main-content {
+    padding: 30px 45px;
+    box-sizing: border-box;
+    min-width: 550px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Отдельный заголовок страницы */
+.page-title {
+    font-size: 32px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+    padding-left: 0;
+}
+
+/* Контейнер для фильтров (без кнопки) */
+.students-controls {
+    /* Renamed */
+    display: flex;
+    /* justify-content: space-between; */
+    /* Кнопки нет, не нужно */
+    justify-content: flex-start;
+    /* Выравниваем фильтры слева */
+    align-items: center;
+    flex-wrap: nowrap;
+    margin-bottom: 20px;
+    padding: 0;
+    gap: 20px;
+}
+
+/* Стили для группы фильтров */
+.filters {
+    display: flex;
+    gap: 10px;
+    flex-wrap: nowrap;
+}
+
+.filter-item {
+    background-color: #F2F5FC;
+    padding: 8px 15px;
+    border-radius: 10px;
+    font-size: 15px;
+    color: #333;
+    white-space: nowrap;
+    font-weight: 500;
+}
+
+/* Стили для таблицы */
+.students-table {
+    /* Renamed */
+    margin: 0;
+}
+
+.table-header,
+.table-row {
+    display: flex;
+    background-color: #F2F5FC;
+    border-radius: 10px;
+    margin-bottom: 8px;
+    padding: 12px 15px;
+    gap: 15px;
+    align-items: center;
+    min-width: 650px;
+    /* Немного увеличил из-за 4 колонок */
+}
+
+.table-header {
+    background-color: #5DB561;
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.table-cell {
+    font-size: 14px;
+    color: #333;
+    flex: 1;
+    /* Базовая ширина */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Задаем разную ширину для 4 колонок */
+.table-cell:nth-child(1) {
+    flex: 2;
+}
+
+/* ФИО */
+.table-cell:nth-child(2) {
+    flex: 1.5;
+}
+
+/* Номер ученика */
+.table-cell:nth-child(3) {
+    flex: 1.5;
+}
+
+/* Тип/Класс */
+.table-cell:nth-child(4) {
+    flex: 1;
+    text-align: right;
+}
+
+/* Дата */
+
+.table-header .table-cell {
+    color: white;
+    font-weight: bold;
+}
+
+/* Адаптивность */
+@media (max-width: 1100px) {
+    /* Стили для .toggle-sidebar / .close-sidebar перенесены в sidebar.css */
+
+    /* Адаптируем контент при скрытом сайдбаре */
+    .content-wrapper {
+        min-width: 0;
+        overflow-x: auto;
+    }
+
+    .main-content {
+        padding: 20px;
+        min-width: 0;
+        max-width: none;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .page-title {
+        font-size: 28px;
+    }
+
+    .students-controls {
+        gap: 15px;
+    }
+}
+
+/* Дополнительные стили */
+@media (max-width: 480px) {
+    .main-content {
+        padding: 15px;
+    }
+
+    .page-title {
+        font-size: 24px;
+    }
+
+    .filter-item,
+    .table-header,
+    .table-cell {
+        font-size: 13px;
+    }
+
+    .table-header,
+    .table-row {
+        padding: 10px;
+        min-width: 0;
+    }
+}

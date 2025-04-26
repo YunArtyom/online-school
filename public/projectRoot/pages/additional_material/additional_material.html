@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Дополнительный материал</title>
+    <link rel="stylesheet" href="../../assets/css/sidebar.css">
+    <link rel="stylesheet" href="../../assets/css/additional_material.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Vela+Sans+GX:wght@400;700&display=swap">
+</head>
+
+<body>
+    <div class="wrapper">
+        <button class="toggle-sidebar">≡</button>
+        <div class="option_sidebar_wrapper">
+            <button class="close-sidebar">✖</button>
+            <div class="sidebar-item sidebar-item_main">
+                <a href="../MainPage.html">
+                    <div class="sidebar-content">
+                        <span class="sidebar-text">Главная страница</span>
+                    </div>
+                </a>
+            </div>
+            <div class="sidebar-items">
+                <div class="sidebar-item">
+                    <a href="#">
+                        <div class="sidebar-content">
+                            <div class="sidebar-icon">
+                                <img src="../../assets/image/bakalavr.svg" alt="Успеваемость учеников">
+                            </div>
+                            <span class="sidebar-text">Успеваемость учеников</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="sidebar-item">
+                    <a href="#">
+                        <div class="sidebar-content">
+                            <div class="sidebar-icon">
+                                <img src="../../assets/image/pen.svg" alt="Успеваемость учителей">
+                            </div>
+                            <span class="sidebar-text">Успеваемость учителей</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="sidebar-item sidebar-item_active">
+                    <a href="#">
+                        <div class="sidebar-content">
+                            <div class="sidebar-icon">
+                                <img src="../../assets/image/plus.svg" alt="Дополнительный материал">
+                            </div>
+                            <span class="sidebar-text">Дополнительный материал</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="sidebar-item">
+                    <a href="#">
+                        <div class="sidebar-content">
+                            <div class="sidebar-icon">
+                                <img src="../../assets/image/pen.svg" alt="Ученики">
+                            </div>
+                            <span class="sidebar-text">Ученики</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="sidebar-item">
+                    <a href="#">
+                        <div class="sidebar-content">
+                            <div class="sidebar-icon">
+                                <img src="../../assets/image/pen.svg" alt="Учителя">
+                            </div>
+                            <span class="sidebar-text">Учителя</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="sidebar-item">
+                    <a href="#">
+                        <div class="sidebar-content">
+                            <div class="sidebar-icon">
+                                <img src="../../assets/image/material.svg" alt="Материал">
+                            </div>
+                            <span class="sidebar-text">Материал</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="sidebar-item">
+                    <a href="#">
+                        <div class="sidebar-content">
+                            <div class="sidebar-icon">
+                                <img src="../../assets/image/calendar.svg" alt="Календарь">
+                            </div>
+                            <span class="sidebar-text">Календарь</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="sidebar-item">
+                    <a href="#">
+                        <div class="sidebar-content">
+                            <div class="sidebar-icon">
+                                <img src="../../assets/image/setting.svg" alt="Настройки">
+                            </div>
+                            <span class="sidebar-text">Настройки</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-wrapper">
+            <div class="main-content">
+                <h1 class="page-title">Дополнительный материал</h1>
+
+                <div class="material-filters">
+                    <div class="filter-select-wrapper">
+                        <label for="class-select">Класс:</label>
+                        <select id="class-select" class="filter-select">
+                            <option value="all" selected>Все</option>
+                            <option value="8">8 класс</option>
+                            <option value="9">9 класс</option>
+                        </select>
+                    </div>
+                    <div class="filter-select-wrapper">
+                        <label for="subject-select">Предмет:</label>
+                        <select id="subject-select" class="filter-select">
+                            <option value="all" selected>Все</option>
+                            <option value="math">Алгебра</option>
+                            <option value="physics">Физика</option>
+                            <option value="chemistry">Химия</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="material-grid">
+                    <div class="material-card add-card">
+                        <div class="add-icon">
+                            <span>+</span>
+                        </div>
+                    </div>
+
+                    <div class="material-card">
+                        <div class="card-image">
+                            <img src="../../assets/pictures/theme.svg" alt="">
+                        </div>
+                        <div class="card-title">Физика</div>
+                    </div>
+                    <div class="material-card">
+                        <div class="card-image">
+                            <img src="../../assets/pictures/theme.svg" alt="">
+                        </div>
+                        <div class="card-title">Химия</div>
+                    </div>
+                    <div class="material-card">
+                        <div class="card-image">
+                            <img src="../../assets/pictures/theme.svg" alt="">
+                        </div>
+                        <div class="card-title">Алгебра</div>
+                    </div>
+                    <div class="material-card">
+                        <div class="card-image">
+                            <img src="../../assets/pictures/theme.svg" alt="">
+                        </div>
+                        <div class="card-title">Литература</div>
+                    </div>
+                    <div class="material-card">
+                        <div class="card-image">
+                            <img src="../../assets/pictures/theme.svg" alt="">
+                        </div>
+                        <div class="card-title">Английский язык</div>
+                    </div>
+                    <div class="material-card">
+                        <div class="card-image">
+                            <img src="../../assets/pictures/theme.svg" alt="">
+                        </div>
+                        <div class="card-title">Биология</div>
+                    </div>
+                    <div class="material-card">
+                        <div class="card-image">
+                            <img src="../../assets/pictures/theme.svg" alt="">
+                        </div>
+                        <div class="card-title">Геометрия</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

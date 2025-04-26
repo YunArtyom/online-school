@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Успеваемость</title>
+    <link rel="stylesheet" href="../../assets/css/sidebar.css">
+    <link rel="stylesheet" href="../../assets/css/performance.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Vela+Sans+GX:wght@400;700&display=swap">
+</head>
+
+<body>
+    <script src="../../assets/js/openClose.js"></script>
+    <script src="../../assets/js/sidebar.js"></script>
+    <div class="wrapper">
+        <!-- Сайдбар -->
+        <button class="toggle-sidebar">≡</button>
+        <div class="option_sidebar_wrapper">
+
+            <button class="close-sidebar">✖</button>
+            <!-- Главная страница -->
+            <div class="sidebar-item_main">
+                <div class="sidebar-content">
+                    <span class="sidebar-text">Главная страница</span>
+                </div>
+            </div>
+            <!-- Остальные элементы сайдбара -->
+            <div class="sidebar-items">
+                <div class="sidebar-item">
+                    <a href="#">
+                        <div class="sidebar-content">
+                            <div class="sidebar-icon">
+                                <img src="../../assets/image/pen.svg" alt="Мои курсы">
+                            </div>
+                            <span class="sidebar-text">Мои курсы</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="sidebar-item">
+                    <a href="#">
+                        <div class="sidebar-content">
+                            <div class="sidebar-icon">
+                                <img src="../../assets/image/calendar.svg" alt="Календарь">
+                            </div>
+                            <span class="sidebar-text">Календарь</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="sidebar-item">
+                    <a href="#">
+                        <div class="sidebar-content">
+                            <div class="sidebar-icon">
+                                <img src="../../assets/image/star.svg" alt="Успеваемость">
+                            </div>
+                            <span class="sidebar-text">Успеваемость</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="sidebar-item">
+                    <a href="#">
+                        <div class="sidebar-content">
+                            <div class="sidebar-icon">
+                                <img src="../../assets/image/plus.svg" alt="Еще курсы">
+                            </div>
+                            <span class="sidebar-text">Еще курсы</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="sidebar-item">
+                    <a href="#">
+                        <div class="sidebar-content">
+                            <div class="sidebar-icon">
+                                <img src="../../assets/image/plus.svg" alt="Доп. материал">
+                            </div>
+                            <span class="sidebar-text">Доп. материал</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="sidebar-item">
+                    <a href="#">
+                        <div class="sidebar-content">
+                            <div class="sidebar-icon">
+                                <img src="../../assets/image/setting.svg" alt="Настройки">
+                            </div>
+                            <span class="sidebar-text">Настройки</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="sidebar-item">
+                    <a href="#">
+                        <div class="sidebar-content">
+                            <div class="sidebar-icon">
+                                <img src="../../assets/image/question.svg" alt="Частые вопросы">
+                            </div>
+                            <span class="sidebar-text">Частые вопросы</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-wrapper">
+            <div class="performance-content">
+                <header class="performance-header">
+                    <div class="performance-header-text"> Успеваемость </div>
+                </header>
+
+                <div class="sorting-options">
+                    <div class="sorting-item">
+                        <button class="sorting-button">Сортировать по <img src="../../assets/image/checkOpen.svg"
+                                alt="Галочка открытия и закрытия"></button>
+                    </div>
+                    <div class="sorting-item">
+                        <button class="sorting-button">Предметы <img src="../../assets/image/checkOpen.svg"
+                                alt="Галочка открытия и закрытия"></button>
+                    </div>
+                    <div class="sorting-item">
+                        <button class="sorting-button">Дата <img src="../../assets/image/checkOpen.svg"
+                                alt="Галочка открытия и закрытия"></button>
+                    </div>
+                </div>
+
+                <div class="performance-notifications">
+                    <div class="performance-header-row">
+                        <div class="performance-header-cell">Название:</div>
+                        <div class="performance-header-cell">Результат:</div>
+                        <div class="performance-header-cell">Дата:</div>
+                    </div>
+
+                    <!-- Results Rows -->
+                    <div class="performance-row">
+                        <div class="performance-cell">Алгебра / 8 класс / Умножение блок 1</div>
+                        <div class="performance-cell result-pass">75/80</div>
+                        <div class="performance-cell">2024.08.08</div>
+                    </div>
+                    <div class="performance-row">
+                        <div class="performance-cell">Алгебра / 8 класс / Умножение блок 1</div>
+                        <div class="performance-cell result-read">Прочитано</div>
+                        <div class="performance-cell">2024.08.08</div>
+                    </div>
+                    <div class="performance-row">
+                        <div class="performance-cell">Русский язык / 8 класс / Фонетика блок 1</div>
+                        <div class="performance-cell result-warning">65/80</div>
+                        <div class="performance-cell">2024.08.08</div>
+                    </div>
+                    <div class="performance-row">
+                        <div class="performance-cell">Русский язык / 8 класс / Союз</div>
+                        <div class="performance-cell result-fail">30/80</div>
+                        <div class="performance-cell">2024.08.08</div>
+                    </div>
+                    <div class="performance-row">
+                        <div class="performance-cell">Алгебра / 8 класс / Умножение блок 2</div>
+                        <div class="performance-cell result-overdue">Просрочено</div>
+                        <div class="performance-cell">2024.08.08</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

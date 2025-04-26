@@ -28,6 +28,7 @@ use App\Models\Subject;
 use App\Models\SubjectTeacher;
 use App\Models\Topic;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
@@ -151,6 +152,10 @@ class LessonController extends Controller
                 }
             ])
             ->get();
+
+        $calendar->each(function ($calendarItem) {
+            $calendarItem->date = Carbon::parse($calendarItem->date);
+        });
 
         return CalendarTopicsResource::collection($calendar);
     }

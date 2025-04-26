@@ -1,0 +1,211 @@
+@font-face {
+    font-family: 'VelaSansGX';
+    src: url('../fonts/velasansgx-extralight.woff2') format('woff2'),
+        url('../fonts/velasansgx-extralight.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'VelaSansGX', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #FDFBFF;
+    margin: 0;
+    position: relative;
+}
+
+.logo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: #ccc;
+    color: #333;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.register-container {
+    /* Changed class name */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.register-form {
+    /* Changed class name */
+    background-color: #fff;
+    padding: 25px 35px 30px 35px;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 360px;
+    /* Keep same width as login */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-size: 30px;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 12px;
+    /* Slightly reduce margin between groups */
+    text-align: left;
+}
+
+/* Style labels like in the image */
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+    /* Darker label color */
+    font-size: 0.9em;
+}
+
+.form-group input,
+.form-group select {
+    /* Apply styles to select as well */
+    width: 100%;
+    padding: 10px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    box-sizing: border-box;
+    font-size: 0.95em;
+    background-color: #F8F8FB;
+    font-family: 'VelaSansGX', sans-serif;
+    /* Ensure select inherits font */
+}
+
+/* Style select dropdown arrow */
+.form-group select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%23333" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    padding-right: 40px;
+    /* Make space for the arrow */
+}
+
+
+.form-group input:focus,
+.form-group select:focus {
+    /* Apply focus to select too */
+    outline: 2px solid #4536F5;
+}
+
+/* Specific styles for checkbox group */
+.checkbox-group {
+    display: flex;
+    align-items: flex-start;
+    /* Align checkbox with start of text */
+    margin-top: 8px;
+    /* Add some space above */
+}
+
+.checkbox-group input[type="checkbox"] {
+    width: auto;
+    /* Don't make checkbox full width */
+    margin-right: 10px;
+    margin-top: 2px;
+    /* Align checkbox better with first line of text */
+    accent-color: #4536F5;
+    /* Style checkbox color */
+}
+
+.checkbox-group label {
+    font-size: 0.85em;
+    /* Smaller font for policy text */
+    color: #504D52;
+    /* Use link color */
+    margin-bottom: 0;
+    /* Remove default label margin */
+    line-height: 1.4;
+    /* Improve readability */
+}
+
+.checkbox-group label a {
+    color: #4536F5;
+    /* Style link within label */
+    text-decoration: underline;
+}
+
+button[type="submit"] {
+    /* Keep button styles consistent */
+    width: 100%;
+    padding: 9px 30px 11px 30px;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1em;
+    margin-top: 15px;
+    /* Add space above button */
+    transition: background-color 0.3s ease;
+    box-sizing: border-box;
+    background-color: #4536F5;
+}
+
+button[type="submit"]:hover {
+    background-color: #3125b1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .logo {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        background-color: #F2F5FC;
+    }
+
+    .register-form {
+        /* Changed class name */
+        padding: 25px;
+        box-shadow: none;
+        border-radius: 20px;
+        max-width: 360px;
+    }
+
+    h1 {
+        font-size: 26px;
+        margin-bottom: 15px;
+    }
+
+    .form-group input,
+    .form-group select,
+    /* Apply to select */
+    button[type="submit"] {
+        padding: 9px;
+        font-size: 0.95em;
+        border-radius: 10px;
+        width: 100%;
+    }
+
+    button[type="submit"] {
+        padding: 9px 30px 11px 30px;
+        margin-top: 20px;
+        /* Adjust margin if needed */
+    }
+
+    .checkbox-group label {
+        font-size: 0.8em;
+        /* Even smaller on mobile */
+    }
+}

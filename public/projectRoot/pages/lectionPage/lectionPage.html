@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная страница</title>
+    <link rel="stylesheet" href="../../assets/css/sidebar.css">
+    <link rel="stylesheet" href="../../assets/css/lectionPage.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Vela+Sans+GX:wght@400;700&display=swap">
+</head>
+
+<body>
+    <script src="../../assets/js/openClose.js"></script>
+    <script src="../../assets/js/sidebar.js"></script>
+    <div class="wrapper">
+        <!-- Сайдбар -->
+        <button class="toggle-sidebar">≡</button>
+        <div class="option_sidebar_wrapper">
+
+            <button class="close-sidebar">✖</button>
+            <!-- Главная страница -->
+            <div class="sidebar-item_main">
+                <div class="sidebar-content">
+                    <span class="sidebar-text">Главная страница</span>
+                </div>
+            </div>
+            <!-- Остальные элементы сайдбара -->
+            <div class="sidebar-items">
+                <div class="sidebar-item">
+                    <a href="#">
+                        <div class="sidebar-content">
+                            <div class="sidebar-icon">
+                                <img src="../../assets/image/bakalavr.svg" alt="Календарь">
+                            </div>
+                            <span class="sidebar-text">Успеваемость учеников</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="sidebar-item">
+                    <a href="#">
+                        <div class="sidebar-content">
+                            <div class="sidebar-icon">
+                                <img src="../../assets/image/pen.svg" alt="Успеваемость учителей">
+                            </div>
+                            <span class="sidebar-text">Успеваемость учителей</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="sidebar-item">
+                    <a href="#">
+                        <div class="sidebar-content">
+                            <div class="sidebar-icon">
+                                <img src="../../assets/image/plus.svg" alt="Дополнительный материал">
+                            </div>
+                            <span class="sidebar-text">Дополнительный материал</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="sidebar-item">
+                    <a href="#">
+                        <div class="sidebar-content">
+                            <div class="sidebar-icon">
+                                <img src="../../assets/image/pen.svg" alt="Ученики">
+                            </div>
+                            <span class="sidebar-text">Ученики</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="sidebar-item">
+                    <a href="#">
+                        <div class="sidebar-content">
+                            <div class="sidebar-icon">
+                                <img src="../../assets/image/pen.svg" alt="Учителя">
+                            </div>
+                            <span class="sidebar-text">Учителя</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="sidebar-item">
+                    <a href="#">
+                        <div class="sidebar-content">
+                            <div class="sidebar-icon">
+                                <img src="../../assets/image/material.svg" alt="Материал">
+                            </div>
+                            <span class="sidebar-text">Материал</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="sidebar-item">
+                    <a href="#">
+                        <div class="sidebar-content">
+                            <div class="sidebar-icon">
+                                <img src="../../assets/image/calendar.svg" alt="Календарь">
+                            </div>
+                            <span class="sidebar-text">Календарь</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="sidebar-item">
+                    <a href="#">
+                        <div class="sidebar-content">
+                            <div class="sidebar-icon">
+                                <img src="../../assets/image/setting.svg" alt="Настройки">
+                            </div>
+                            <span class="sidebar-text">Настройки</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-wrapper">
+            <div class="leciton-content">
+                <header class="header_leciton_page desktop">
+                    <div class="header_leciton_page_text">
+                        < Классы / 5 класс / Алгебра / Ежедневные уроки </div>
+                </header>
+
+                <div class="leciton-notifications">
+                    <div class="leciton-notification-item_text desktop">Календарь тем по дням</div>
+                    <div class="leciton-notification-item_text mobile">
+                        < Календарь</div>
+                            <div class="leciton-notification-item_text-second desktop">Август, 2024</div>
+                            <div class="for-mobile-arrows mobile">
+                                <button class="arrow left-arrow" id="prev-week">&#9664;</button> <!-- Стрелка влево -->
+                                <div class="leciton-notification-item_text-second" id="dateDisplay">Август, 2024</div>
+                                <button class="arrow right-arrow" id="next-week">&#9654;</button>
+                                <!-- Стрелка вправо -->
+                            </div>
+
+                            <div class="form-container mobile" id="formContainer" style="display: none;">
+                                <label class="monthSelectLabel" for="monthSelect">Выберите месяц:</label>
+                                <select class="monthSelect" id="monthSelect"></select>
+
+                                <label class="monthSelectLabel" for="yearSelect">Выберите год:</label>
+                                <select class="monthSelect" id="yearSelect"></select>
+
+                                <button class="monthSelectBtn" id="submitBtn">Сохранить</button>
+                            </div>
+
+                            <script src="../../assets/js/yearAndMonth.js"></script>
+                            <div class="leciton-notification-item_content">
+                                <div class="calendar desktop">
+                                    <div class="card">
+                                        <h1>SAT</h1>
+                                        <hr>
+                                        <div class="number">2</div>
+                                        <div class="lessons">
+                                            <div class="lesson">Умножение</div>
+                                            <div class="lesson">Умножение продвинутый
+                                                уровень</div>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <h1>SAT</h1>
+                                        <hr>
+                                        <div class="number">3</div>
+                                        <div class="lessons">
+                                            <div class="no-lessons">Нет тем/нет урока</div>
+                                            <div class="lesson-homework">Дата сдачи ДЗ</div>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <h1>SAT</h1>
+                                        <hr>
+                                        <div class="number">4</div>
+                                        <div class="lessons">
+                                            <div class="no-lessons">Нет тем/нет урока</div>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <h1>SAT</h1>
+                                        <hr>
+                                        <div class="number">5</div>
+                                        <div class="lessons">
+                                            <div class="no-lessons">Нет тем/нет урока</div>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <h1>SAT</h1>
+                                        <hr>
+                                        <div class="number">6</div>
+                                        <div class="lessons">
+                                            <div class="no-lessons">Нет тем/нет урока</div>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <h1>SAT</h1>
+                                        <hr>
+                                        <div class="number">7</div>
+                                        <div class="lessons">
+                                            <div class="no-lessons">Нет тем/нет урока</div>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <h1>SAT</h1>
+                                        <hr>
+                                        <div class="number">8</div>
+                                        <div class="lessons">
+                                            <div class="no-lessons">Нет тем/нет урока</div>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="number">9</div>
+                                        <div class="lessons">
+                                            <div class="lesson">Деление</div>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="number">10</div>
+                                        <div class="lessons">
+                                            <div class="lesson">Русский</div>
+                                            <div class="lesson">Математика</div>
+                                            <div class="lesson">Литература</div>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="number">11</div>
+                                        <div class="lessons">
+                                            <div class="no-lessons">Нет тем/нет урока</div>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="number">12</div>
+                                        <div class="lessons">
+                                            <div class="lesson">Русский</div>
+                                            <div class="lesson">Математика</div>
+                                            <div class="lesson">Литература</div>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="number">13</div>
+                                        <div class="lessons">
+                                            <div class="no-lessons">Нет тем/нет урока</div>
+                                            <div class="lesson-homework">Дата сдачи ДЗ</div>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="number">14</div>
+                                        <div class="lessons">
+                                            <div class="lesson">Русский</div>
+                                            <div class="lesson">Математика</div>
+                                            <div class="lesson">Литература</div>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="number">15</div>
+                                        <div class="lessons">
+                                            <div class="no-lessons">Нет тем/нет урока</div>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="number">16</div>
+                                        <div class="lessons">
+                                            <div class="lesson">Русский</div>
+                                            <div class="lesson">Математика</div>
+                                            <div class="lesson">Литература</div>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="number">17</div>
+                                        <div class="lessons">
+                                            <div class="no-lessons">Нет тем/нет урока</div>
+                                        </div>
+                                    </div>
+                                    <div class="card-gray">
+                                        <div class="number">18</div>
+                                        <div class="lessons">
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="number">19</div>
+                                        <div class="lessons">
+                                            <div class="no-lessons">Нет тем/нет урока</div>
+                                            <div class="lesson-homework">Дата сдачи ДЗ</div>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="number">20</div>
+                                        <div class="lessons">
+                                            <div class="lesson">Русский</div>
+                                            <div class="lesson">Математика</div>
+                                            <div class="lesson">Литература</div>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="number">21</div>
+                                        <div class="lessons">
+                                            <div class="no-lessons">Нет тем/нет урока</div>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="number">22</div>
+                                        <div class="lessons">
+                                            <div class="lesson">Русский</div>
+                                            <div class="lesson">Математика</div>
+                                            <div class="lesson">Литература</div>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="number">23</div>
+                                        <div class="lessons">
+                                            <div class="lesson">Русский</div>
+                                            <div class="lesson">Математика</div>
+                                            <div class="lesson">Литература</div>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="number">24</div>
+                                        <div class="lessons">
+                                            <div class="lesson-ekzamen">Дата сдачи ДЗ</div>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="number">25</div>
+                                        <div class="lessons">
+                                            <div class="no-lessons">Нет тем/нет урока</div>
+                                            <div class="lesson-homework">Дата сдачи ДЗ</div>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="number">26</div>
+                                        <div class="lessons">
+                                            <div class="no-lessons">Нет тем/нет урока</div>
+                                            <div class="lesson-homework">Дата сдачи ДЗ</div>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="number">27</div>
+                                        <div class="lessons">
+                                            <div class="lesson">Русский</div>
+                                            <div class="lesson">Литература</div>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="number">28</div>
+                                        <div class="lessons">
+                                            <div class="lesson">Математика</div>
+                                            <div class="lesson">Литература</div>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="number">29</div>
+                                        <div class="lessons">
+                                            <div class="lesson">Русский</div>
+                                            <div class="lesson">Литература</div>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="number">30</div>
+                                        <div class="lessons">
+                                            <div class="lesson">Русский</div>
+                                            <div class="lesson">Математика</div>
+                                            <div class="lesson">Литература</div>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="number">31</div>
+                                        <div class="lessons">
+                                            <div class="no-lessons">Нет тем/нет урока</div>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="number">1</div>
+                                        <div class="lessons">
+                                            <div class="lesson">Русский</div>
+                                            <div class="lesson">Математика</div>
+                                            <div class="lesson">Литература</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="calendar desktop mobile">
+                                    <div class="week">
+                                        <div class="card">
+                                            <h1>Суббота, 2 октября</h1>
+                                            <hr>
+                                            <div class="lessons">
+                                                <div class="lesson">Умножение</div>
+                                                <div class="lesson">Умножение продвинутый
+                                                    уровень</div>
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <h1>Воскресенье, 3 октября</h1>
+                                            <hr>
+                                            <div class="lessons">
+                                                <div class="no-lessons">Умножение</div>
+                                                <div class="lesson-homework">Умножение продвинутый
+                                                    уровень</div>
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <h1>Понедельник, 4 октября</h1>
+                                            <hr>
+                                            <div class="lessons">
+                                                <div class="no-lessons">Умножение</div>
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <h1>Вторник, 5 октября</h1>
+                                            <hr>
+                                            <div class="lessons">
+                                                <div class="lesson">Умножение</div>
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <h1>Среда, 6 октября</h1>
+                                            <hr>
+                                            <div class="lessons">
+                                                <div class="no-lessons">Умножение</div>
+                                                <div class="lesson">Умножение продвинутый
+                                                    уровень</div>
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <h1>Четверг, 7 октября</h1>
+                                            <hr>
+                                            <div class="lessons">
+                                                <div class="no-lessons">Умножение</div>
+                                                <div class="lesson">Умножение продвинутый
+                                                    уровень</div>
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <h1>Пятница, 8 октября</h1>
+                                            <hr>
+                                            <div class="lessons">
+                                                <div class="lesson">Умножение</div>
+                                                <div class="lesson-homework">Умножение продвинутый
+                                                    уровень</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="week" style="display: none;">
+                                        <div class="card">
+                                            <h1>Суббота, 9 октября</h1>
+                                            <hr>
+                                            <div class="lessons">
+                                                <div class="lesson">Умножение 2</div>
+                                                <div class="lesson">Умножение продвинутый
+                                                    уровень 2</div>
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <h1>Воскресенье, 10 октября</h1>
+                                            <hr>
+                                            <div class="lessons">
+                                                <div class="no-lessons">Умножение 2</div>
+                                                <div class="lesson-homework">Умножение продвинутый
+                                                    уровень 2</div>
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <h1>Понедельник, 11 октября 2</h1>
+                                            <hr>
+                                            <div class="lessons">
+                                                <div class="no-lessons">Умножение 2</div>
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <h1>Вторник, 12 октября</h1>
+                                            <hr>
+                                            <div class="lessons">
+                                                <div class="lesson">Умножение</div>
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <h1>Среда, 13 октября</h1>
+                                            <hr>
+                                            <div class="lessons">
+                                                <div class="no-lessons">Умножение</div>
+                                                <div class="lesson">Умножение продвинутый
+                                                    уровень</div>
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <h1>Четверг, 14 октября</h1>
+                                            <hr>
+                                            <div class="lessons">
+                                                <div class="no-lessons">Умножение</div>
+                                                <div class="lesson">Умножение продвинутый
+                                                    уровень</div>
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <h1>Пятница, 15 октября</h1>
+                                            <hr>
+                                            <div class="lessons">
+                                                <div class="lesson">Умножение</div>
+                                                <div class="lesson-homework">Умножение продвинутый
+                                                    уровень</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <script src="../../assets/js/nextOrPervWeek.js"></script>
+
+                            <div class="leciton-notification-item_text desktop">Календарь тем по дням</div>
+
+                            <div class="leciton-buttons">
+                                <button class="leciton-button-outline desktop">Добавить новую тему</button>
+                            </div>
+
+                            <div class="leciton-notifications-second desktop">
+                                <div class="leciton-header-row-second">
+                                    <div class="leciton-header-cell-second">Темы</div>
+                                    <div class="leciton-header-cell-second">Присвоен к уроку</div>
+                                    <div class="leciton-header-cell-second">Продается</div>
+                                    <div class="leciton-header-cell-second">Цена</div>
+                                    <div class="leciton-header-cell-second"></div>
+                                </div>
+
+                                <!-- Results Rows -->
+                                <div class="leciton-row-second">
+                                    <div class="leciton-cell-second">Умножение</div>
+                                    <div class="leciton-cell-second">4</div>
+                                    <div class="leciton-cell-second">Мой предмет</div>
+                                    <div class="leciton-cell-second">2024-08-08</div>
+                                    <div class="leciton-cell-second">Редактировать</div>
+                                </div>
+                                <div class="leciton-row-second">
+                                    <div class="leciton-cell-second">Алгебра / 8 класс / Умножение блок 1</div>
+                                    <div class="leciton-cell-second">25</div>
+                                    <div class="leciton-cell-second">Мой предмет</div>
+                                    <div class="leciton-cell-second">2024-08-08</div>
+                                    <div class="leciton-cell-second">Редактировать</div>
+                                </div>
+                                <div class="leciton-row-second">
+                                    <div class="leciton-cell-second">Шахматы</div>
+                                    <div class="leciton-cell-second">25</div>
+                                    <div class="leciton-cell-second">Мой предмет</div>
+                                    <div class="leciton-cell-second">2024-08-08</div>
+                                    <div class="leciton-cell-second">Редактировать</div>
+                                </div>
+                                <div class="leciton-row-second">
+                                    <div class="leciton-cell-second">Физика / 9 класс / Сила тяжести</div>
+                                    <div class="leciton-cell-second">25</div>
+                                    <div class="leciton-cell-second">Отданный предмет</div>
+                                    <div class="leciton-cell-second">2024-08-08</div>
+                                    <div class="leciton-cell-second">Редактировать</div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

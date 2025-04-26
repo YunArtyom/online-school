@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная страница</title>
+    <link rel="stylesheet" href="../assets/css/sidebar.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Vela+Sans+GX:wght@400;700&display=swap">
+</head>
+
+<body>
+    <script src="../assets/js/sidebar.js"></script>
+    <div class="wrapper">
+        <!-- Сайдбар -->
+        <button class="toggle-sidebar">≡</button>
+        <div class="option_sidebar_wrapper">
+
+            <button class="close-sidebar">✖</button>
+            <!-- Главная страница -->
+            <div class="sidebar-item_main">
+                <div class="sidebar-content">
+                    <span class="sidebar-text">Главная страница</span>
+                </div>
+            </div>
+            <!-- Остальные элементы сайдбара -->
+            <div class="sidebar-items">
+                <div class="sidebar-item">
+                    <a href="#">
+                        <div class="sidebar-content">
+                            <div class="sidebar-icon">
+                                <img src="../assets/image/pen.svg" alt="Мои курсы">
+                            </div>
+                            <span class="sidebar-text">Мои курсы</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="sidebar-item">
+                    <a href="#">
+                        <div class="sidebar-content">
+                            <div class="sidebar-icon">
+                                <img src="../assets/image/calendar.svg" alt="Календарь">
+                            </div>
+                            <span class="sidebar-text">Календарь</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="sidebar-item">
+                    <a href="#">
+                        <div class="sidebar-content">
+                            <div class="sidebar-icon">
+                                <img src="../assets/image/star.svg" alt="Успеваемость">
+                            </div>
+                            <span class="sidebar-text">Успеваемость</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="sidebar-item">
+                    <a href="#">
+                        <div class="sidebar-content">
+                            <div class="sidebar-icon">
+                                <img src="../assets/image/plus.svg" alt="Еще курсы">
+                            </div>
+                            <span class="sidebar-text">Еще курсы</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="sidebar-item">
+                    <a href="#">
+                        <div class="sidebar-content">
+                            <div class="sidebar-icon">
+                                <img src="../assets/image/plus.svg" alt="Доп. материал">
+                            </div>
+                            <span class="sidebar-text">Доп. материал</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="sidebar-item">
+                    <a href="#">
+                        <div class="sidebar-content">
+                            <div class="sidebar-icon">
+                                <img src="../assets/image/setting.svg" alt="Настройки">
+                            </div>
+                            <span class="sidebar-text">Настройки</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="sidebar-item">
+                    <a href="#">
+                        <div class="sidebar-content">
+                            <div class="sidebar-icon">
+                                <img src="../assets/image/question.svg" alt="Частые вопросы">
+                            </div>
+                            <span class="sidebar-text">Частые вопросы</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Обертка для основного контента с min-width -->
+        <div class="content-wrapper">
+            <!-- Основной контент -->
+            <div class="main-content">
+                <header class="header_main_page">
+                    <div class="header_main_page_text">Главная страница</div>
+                </header>
+
+                <div class="stats">
+                    <div class="stat-item completed">
+                        <div class="decorative-block-start">
+                            <img src="../assets/image/decorative-start.svg" alt="Частые вопросы"
+                                class="decorative-start-svg">
+                        </div>
+                        <div class="decorative-block">
+                            <img src="../assets/image/decorative.svg" alt="Частые вопросы" class="decorative-svg">
+                        </div>
+                        <h2 class="stat_count">100</h2>
+                        <p class="stat_name">Выполненных заданий</p>
+                    </div>
+                    <div class="stat-item pending">
+                        <div class="decorative-block-start">
+                            <img src="../assets/image/decorative-start.svg" alt="Частые вопросы"
+                                class="decorative-start-svg">
+                        </div>
+                        <div class="decorative-block">
+                            <img src="../assets/image/decorative.svg" alt="Частые вопросы" class="decorative-svg">
+                        </div>
+                        <h2 class="stat_count">36</h2>
+                        <p class="stat_name">Заданий ожидают работы</p>
+                    </div>
+                    <div class="stat-item reviewing">
+                        <div class="decorative-block-start">
+                            <img src="../assets/image/decorative-start.svg" alt="Частые вопросы"
+                                class="decorative-start-svg">
+                        </div>
+                        <div class="decorative-block">
+                            <img src="../assets/image/decorative.svg" alt="Частые вопросы" class="decorative-svg">
+                        </div>
+                        <h2 class="stat_count">2</h2>
+                        <p class="stat_name">Ожидают проверки</p>
+                    </div>
+                    <div class="stat-item overdue">
+                        <div class="decorative-block-start">
+                            <img src="../assets/image/decorative-start.svg" alt="Частые вопросы"
+                                class="decorative-start-svg">
+                        </div>
+                        <div class="decorative-block">
+                            <img src="../assets/image/decorative.svg" alt="Частые вопросы" class="decorative-svg">
+                        </div>
+                        <h2 class="stat_count">4</h2>
+                        <p class="stat_name">Пропущен срок сдачи</p>
+                    </div>
+                </div>
+
+                <div class="notifications">
+                    <h3 class="notifications_main_text">Уведомления</h3>
+                    <div class="scroll-notification">
+                        <div class="notification-item">
+                            <div class="background_circle_icon_exclamation">
+                                <div class="inside_circle_icon_exclamation">
+                                    <img src="../assets/image/exclamation.svg" alt="Восклицательный знак">
+                                </div>
+                            </div>
+                            <div class="notification-item_content">
+                                <div class="notification-item_text">Внимание! Пропущен срок сдачи задания по «Русский
+                                    язык
+                                    Сочинение»</div>
+                                <div class="notification_item_options">
+                                    <span class="notification_item_option">Скрыть на 6 часов</span>
+                                    <span class="notification_item_option_last">Перейти</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="notification-item">
+                            <div class="background_circle_icon_whitestar">
+                                <div class="inside_circle_icon_whitestar">
+                                    <img src="../assets/image/whitestar.svg" alt="Белая звезда">
+                                </div>
+                            </div>
+                            <div class="notification-item_content">
+                                <div class="notification-item_text">Всем от директора</div>
+                                <div class="notification_item_options">
+                                    <span class="notification_item_option">Дорогие ученики, поздравляю вас с окончанием
+                                        учебного года!</span>
+                                    <span class="notification_item_option_last">Перейти</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="notification-item">
+                            <div class="background_circle_icon_heart">
+                                <div class="inside_circle_icon_heart">
+                                    <img src="../assets/image/heart.svg" alt="Сердце">
+                                </div>
+                            </div>
+                            <div class="notification-item_content">
+                                <div class="notification-item_text">Лариса Генадьевна оценил вашу работу: Английский
+                                    язык.
+                                    «Перевод текста»</div>
+                                <div class="notification_item_options">
+                                    <span class="notification_item_option">Результат</span>
+                                    <div class="notification_item_grade">30/40 баллов</div>
+                                    <span class="notification_item_option_last">Перейти</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="notification-item">
+                            <div class="background_circle_icon_heart">
+                                <div class="inside_circle_icon_heart">
+                                    <img src="../assets/image/heart.svg" alt="Сердце">
+                                </div>
+                            </div>
+                            <div class="notification-item_content">
+                                <div class="notification-item_text">Лариса Генадьевна оценил вашу работу: Английский
+                                    язык.
+                                    «Перевод текста»</div>
+                                <div class="notification_item_options">
+                                    <span class="notification_item_option">Результат</span>
+                                    <div class="notification_item_grade">30/40 баллов</div>
+                                    <span class="notification_item_option_last">Перейти</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="notification-item">
+                            <div class="background_circle_icon_exclamation">
+                                <div class="inside_circle_icon_exclamation">
+                                    <img src="../assets/image/exclamation.svg" alt="Восклицательный знак">
+                                </div>
+                            </div>
+                            <div class="notification-item_content">
+                                <div class="notification-item_text">Осталось 7 дней до даты помесячной оплаты за 8 класс
+                                </div>
+                                <div class="notification_item_options">
+                                    <span class="notification_item_option"></span>
+                                    <span class="notification_item_option_last">Оплатить</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="notification-item">
+                            <div class="background_circle_icon_heart">
+                                <div class="inside_circle_icon_heart">
+                                    <img src="../assets/image/heart.svg" alt="Сердце">
+                                </div>
+                            </div>
+                            <div class="notification-item_content">
+                                <div class="notification-item_text">Лариса Генадьевна оценил вашу работу: Английский
+                                    язык.
+                                    «Глаголы»</div>
+                                <div class="notification_item_options">
+                                    <span class="notification_item_option">Результат</span>
+                                    <div class="notification_item_grade">30/40 баллов</div>
+                                    <span class="notification_item_option_last">Нет</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Подключаем JS для сайдбара -->
+    <script src="../assets/js/sidebar.js"></script>
+</body>
+
+</html>
