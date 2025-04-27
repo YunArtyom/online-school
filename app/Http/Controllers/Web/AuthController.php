@@ -2,31 +2,29 @@
 
 namespace App\Http\Controllers\Web;
 
+use App\Facades\ApiCallFacade;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cookie;
-use Illuminate\Support\Facades\Http;
+
 
 class AuthController
 {
     public function login(Request $request)
     {
-        $response = Http::post(url('/api/auth/login'), [
+        $response = ApiCallFacade::post('/auth/login', [
             'email' => $request->email,
             'password' => $request->password,
         ]);
 
-        if ($response->successful()) {
-            $token = $response->json('token');
-
-            // Сохраняем токен в куку на 5 лет
-            Cookie::queue('api_token', $token, 60 * 24 * 365 * 5);
-
-
-            return redirect(route('main'));
-        } else {
+        if (!isset($response['access_token'])) {
             return back()->withErrors([
                 'email' => 'Неверный логин или пароль',
             ]);
         }
+
+        Cookie::queue('user', json_encode($response['user']), 60 * 24 * 365 * 5);
+        Cookie::queue('api_sanctum_token', $response['access_token'], 60 * 24 * 365 * 5);
+
+        return redirect(route('main'));
     }
 }

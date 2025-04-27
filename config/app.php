@@ -125,5 +125,6 @@ return [
 
     'aliases' => [
         'Notification' => App\Facades\NotificationFacade::class,
+        'ApiCall' => App\Facades\ApiCallFacade::class,
     ],
 ];
