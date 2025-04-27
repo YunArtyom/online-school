@@ -22,13 +22,14 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 // Группа маршрутов, доступных только после авторизации
 Route::middleware(['apiAuth'])->group(function () {
     Route::get('/', [MainController::class, 'index'])->name('main');
-//    Route::get('/calendar', [CalendarController::class, 'index']);
-//
-//    Route::post('topic/', [LessonController::class, 'createTopic']);
-//    Route::get('topic/{id}', [TopicController::class, 'getForUpdate']);
-    Route::get('grade', [GradeController::class, 'list']);
-    Route::get('grade/{grade}', [ClassController::class, 'get']);
-//    //'class-edit/{id}' - class/1/subject/1
-//    Route::get('class-edit/{id}', [ClassController::class, 'getForEdit']);
+
+    Route::prefix('lesson')->group(function () {
+        Route::prefix('grades')->group(function () {
+            Route::get('/', [GradeController::class, 'grades']);
+            Route::get('/{grade}', [GradeController::class, 'grade']);
+//            Route::put('/{grade}', [LessonController::class, 'editGrade'])->middleware('isDirector');
+            Route::put('/deactivate-activate/{grade}', [GradeController::class, 'deactivateActivateGrade'])->middleware('isDirector');
+        });
+    });
 
 });

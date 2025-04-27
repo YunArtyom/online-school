@@ -4,7 +4,7 @@
 
     <div style="display: flex; flex-direction: column; gap: 12px;">
         @foreach($data as $item)
-            <a href="/grade/{{ $item['id'] }}" style="text-decoration: none; color: inherit;">
+            <a href="/lesson/grades/{{ $item['id'] }}" style="text-decoration: none; color: inherit;">
                 <div style="
                     background: #dfe7f6;
                     border-radius: 12px;

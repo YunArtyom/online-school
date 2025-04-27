@@ -1,7 +1,7 @@
 @php
     $class = $data['grade'] . " класс";
     $description = $data['description'];
-    $courses = $data->subjects
+    $courses = $data['subjects']
 @endphp
 <style>
     .add-button {
@@ -100,20 +100,6 @@
                     </a>
                 @endforeach
             </div>
-
-{{--            <div class="leciton-notification-item-body mobile">--}}
-{{--                <div class="leciton-notification-item_text" id="homeWorkHeaderLection">Предметы по курсу</div>--}}
-{{--                <div class="leciton-notification-items" id="homeWorkBodyLection" style="display: none;">--}}
-{{--                    @foreach($courses as $category => $courseItems)--}}
-{{--                        @foreach($courseItems as $course)--}}
-{{--                            <div class="leciton-row-second">--}}
-{{--                                <div class="leciton-cell-second">Полный курс {{ $category }} {{ $class }}</div>--}}
-{{--                                <div class="leciton-cell-second-last"><button class="submit-button-cell">Подробнее</button></div>--}}
-{{--                            </div>--}}
-{{--                        @endforeach--}}
-{{--                    @endforeach--}}
-{{--                </div>--}}
-{{--            </div>--}}
         </div>
 
         <div class="homeWork-sidebar">
@@ -123,7 +109,7 @@
                     <span class="teacherPage-acc-info-cell-right"
                           style="text-decoration: underline;
                            cursor: pointer;" id="open-popup23"
-                    >2024.08.08
+                    >{{$data['startAt']}}
                     </span>
                 </div>
 
@@ -132,7 +118,7 @@
                     <span class="teacherPage-acc-info-cell-right"
                           style="text-decoration: underline;
                            cursor: pointer;" id="open-popup8"
-                    >{{$data['price_won'] }}
+                    >{{$data['priceUSD'] }}
                     </span>
                 </div>
 
@@ -141,7 +127,7 @@
                     <span class="teacherPage-acc-info-cell-right"
                           style="text-decoration: underline;
                            cursor: pointer;" id="open-popup9"
-                    >{{$data['price_rub'] }}
+                    >{{$data['priceRUB'] }}
                     </span>
                 </div>
 
@@ -150,7 +136,7 @@
                     <span class="teacherPage-acc-info-cell-right"
                           style="text-decoration: underline;
                            cursor: pointer;" id="open-popup10"
-                    >{{$data['price_usd'] }}
+                    >{{$data['priceWON'] }}
                     </span>
                 </div>
 
@@ -159,7 +145,7 @@
                     <span class="teacherPage-acc-info-cell-right"
                           style="text-decoration: underline;
                            cursor: pointer;" id="open-popup11"
-                    >{{$data['month_price_won'] }}
+                    >{{$data['monthPriceWON'] }}
                     </span>
                 </div>
 
@@ -168,7 +154,7 @@
                     <span class="teacherPage-acc-info-cell-right"
                           style="text-decoration: underline;
                            cursor: pointer;" id="open-popup12"
-                    >{{$data['month_price_rub'] }}
+                    >{{$data['monthPriceRUB'] }}
                     </span>
                 </div>
 
@@ -177,7 +163,7 @@
                     <span class="teacherPage-acc-info-cell-right"
                           style="text-decoration: underline;
                            cursor: pointer;" id="open-popup13"
-                    >{{$data['month_price_usd'] }}
+                    >{{$data['monthPriceUSD'] }}
                     </span>
                 </div>
                 <br>
@@ -187,12 +173,14 @@
                 <button class="submit-button-yellow" id="open-popup34">Снять с продажи</button>
                 <button class="submit-button-green">Выставить на продажу</button>
 
-                <div class="homeWork-section-span-check">
-                    <span>Нужна помощь?</span>
-                </div>
-                <div class="homeWork-section-span">
-                    <span>Нажмите здесь и задайте вопрос</span>
-                </div>
+                @if (request()->attributes->get('user')['type'] == 'student')
+                    <div class="homeWork-section-span-check">
+                        <span>Нужна помощь?</span>
+                    </div>
+                    <div class="homeWork-section-span">
+                        <span>Нажмите здесь и задайте вопрос</span>
+                    </div>
+                @endif
             </div>
         </div>
 

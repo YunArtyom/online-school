@@ -5,47 +5,51 @@
             <br>
             <h3>Вы уверены?</h3>
             <br>
+            <input type="hidden" id="inc" value="{{$data['id']}}">
             <button class="popup-button" style="background-color: rgba(244, 206, 90, 1)" id="full-width-button7">Снять с продажи</button>
         </div>
     </div>
 </div>
 
 <script>
-    const openPopupButton34 = document.getElementById('open-popup34');
-    const popup34 = document.getElementById('popup34');
-    const closePopupButton34 = document.querySelector('.close-sidebar11');
+    document.addEventListener('DOMContentLoaded', () => {
+        const openPopupButton34 = document.getElementById('open-popup34');
+        const popup34 = document.getElementById('popup34');
+        const closePopupButton34 = document.querySelector('.close-sidebar11');
 
-    openPopupButton34.addEventListener('click', () => {
-        popup34.style.display = 'flex'; // Показываем поп-ап
-    });
+        openPopupButton34.addEventListener('click', () => {
+            popup34.style.display = 'flex'; // Показываем поп-ап
+        });
 
-    closePopupButton34.addEventListener('click', () => {
-        popup34.style.display = 'none'; // Скрываем поп-ап
-    });
+        closePopupButton34.addEventListener('click', () => {
+            popup34.style.display = 'none'; // Скрываем поп-ап
+        });
 
-    function sendData() {
-        const data = { action: 'remove_from_sale' };
+        function sendData() {
+            const data = { action: 'remove_from_sale' };
+            const incValue = document.getElementById('inc').value;
 
-        fetch('/test', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'X-CSRF-TOKEN': '{{ csrf_token() }}'
-            },
-            body: JSON.stringify(data)
-        })
-            .then(response => response.json())
-            .then(data => {
-                console.log('Success:', data);
-
-                popup34.style.display = 'none';
+            fetch('/lesson/grades/deactivate-activate/' + incValue, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                },
+                body: JSON.stringify(data)
             })
-            .catch((error) => {
-                console.error('Error:', error);
-            });
-    }
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Success:', data);
 
-    document.getElementById('full-width-button7').addEventListener('click', () => {
-        sendData();
+                    popup34.style.display = 'none';
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
+        }
+
+        document.getElementById('full-width-button7').addEventListener('click', () => {
+            sendData();
+        });
     });
 </script>

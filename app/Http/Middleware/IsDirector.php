@@ -12,7 +12,7 @@ class IsDirector
 {
     public function handle(Request $request, Closure $next): Response
     {
-        if (auth()->user()->type === User::DIRECTOR_TYPE) {
+        if (request()->attributes->get('user')['type'] === User::DIRECTOR_TYPE) {
             return $next($request);
         }
 

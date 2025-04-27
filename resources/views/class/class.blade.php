@@ -18,14 +18,8 @@
         @endcomponent
         <!-- Отображение главной страницы -->
         <!-- Основной контент -->
+        @include($template)
 
-        @if (request()->is('grade'))
-            @include('class.classList')
-        @elseif (request()->is('grade/*'))
-            @include('class.classEdit')
-        @elseif (request()->is('class/*/subject/*'))
-            @include('class.classEditDetail')
-        @endif
     </div>
     @include('class.popups.teachers')
     @include('class.popups.addSubj')
