@@ -55,7 +55,6 @@ class CalendarSeeder extends Seeder
                 'day_of_week'           => $start->translatedFormat('l'),
                 'is_weekend'            => $isWeekend,
                 'is_holiday'            => $isHoliday,
-                'note'                  => null,
                 'created_at'            => now(),
                 'updated_at'            => now(),
             ];
@@ -78,7 +77,6 @@ class CalendarSeeder extends Seeder
                         // Если в этот день ещё не попал базовый праздник, отмечаем его как компенсационный
                         if (!$data[$j]['is_holiday']) {
                             $data[$j]['is_holiday'] = true;
-                            $data[$j]['note'] = 'Перенос праздника с ' . $currentDate->toDateString();
                         }
                         break; // Обрабатываем только ближайший рабочий день
                     }
