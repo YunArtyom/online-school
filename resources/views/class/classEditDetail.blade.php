@@ -127,7 +127,7 @@
                 </div>
                 <br>
 
-                <button class="submit-button-yellow">Снять с продажи</button>
+                <button class="submit-button-yellow" id="open-popup34">Снять с продажи</button>
                 <button class="submit-button-green">Выставить на продажу</button>
                 <button class="submit-button-red" id="open-popup33">Удалить предмет</button>
 
