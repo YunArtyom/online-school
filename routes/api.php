@@ -4,9 +4,14 @@ use App\Http\Controllers\Api\AdditionalMaterialController;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\LessonController;
 use App\Http\Controllers\Api\NotificationController;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 Route::post('landing-main');
+
+Route::middleware('auth:sanctum')->get('/auth/me', function (Request $request) {
+    return response()->json($request->user());
+});
 
 Route::get('main', [AuthController::class, 'register']);
 

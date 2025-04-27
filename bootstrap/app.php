@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Middleware\ApiAuthMiddleware;
 use App\Http\Middleware\IsDirector;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
@@ -15,7 +16,8 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware) {
         $middleware->alias([
-            'isDirector' => IsDirector::class
+            'isDirector' => IsDirector::class,
+            'apiAuth' => ApiAuthMiddleware::class
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {

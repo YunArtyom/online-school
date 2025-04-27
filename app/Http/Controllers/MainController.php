@@ -3,9 +3,13 @@
 namespace App\Http\Controllers;
 
 
+use App\Facades\ApiCallFacade;
+use Illuminate\Http\Request;
+
+
 class MainController
 {
-    public function index()
+    public function index(Request $request)
     {
         $data = ['test'];
         return view('main', [

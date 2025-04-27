@@ -19,11 +19,11 @@
         <!-- Отображение главной страницы -->
         <!-- Основной контент -->
 
-        @if (request()->is('class'))
+        @if (request()->is('grade'))
             @include('class.classList')
-        @elseif (request()->is('class/*'))
+        @elseif (request()->is('grade/*'))
             @include('class.classEdit')
-        @elseif (request()->is('class-edit/*'))
+        @elseif (request()->is('class/*/subject/*'))
             @include('class.classEditDetail')
         @endif
     </div>

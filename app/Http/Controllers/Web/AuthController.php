@@ -16,6 +16,7 @@ class AuthController
             'password' => $request->password,
         ]);
 
+
         if (!isset($response['access_token'])) {
             return back()->withErrors([
                 'email' => 'Неверный логин или пароль',

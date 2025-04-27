@@ -1,9 +1,10 @@
+
 <div style="width: 100%; padding: 30px; background: #f9f8fb; min-height: 100vh;">
     <h1 style="font-size: 32px; font-weight: bold; margin-bottom: 20px;">Классы</h1>
 
     <div style="display: flex; flex-direction: column; gap: 12px;">
-        @for ($i = 1; $i <= 9; $i++)
-            <a href="/class/{{ $i }}" style="text-decoration: none; color: inherit;">
+        @foreach($data as $item)
+            <a href="/grade/{{ $item['id'] }}" style="text-decoration: none; color: inherit;">
                 <div style="
                     background: #dfe7f6;
                     border-radius: 12px;
@@ -16,9 +17,9 @@
                     align-items: center;
                     justify-content: flex-start;
                 ">
-                    {{ $i }} класс
+                    {{ $item['grade'] }} класс
                 </div>
             </a>
-        @endfor
+        @endforeach
     </div>
 </div>

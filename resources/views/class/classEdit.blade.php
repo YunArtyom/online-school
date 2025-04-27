@@ -1,31 +1,7 @@
 @php
-    $class = "8 класс";
-    $description = "В данном уроке мы сможем научиться умножать числа В данном уроке мы сможем научиться умножать числа В данном уроке мы сможем научиться умножать числа В данном уроке мы сможем научиться умножать числа В данном уроке мы сможем научиться умножать числа В данном уроке мы сможем научиться умножать числа В данном уроке мы сможем научиться умножать числа В данном уроке мы сможем научиться умножать числа В данном уроке мы сможем научиться умножать числа В данном уроке мы сможем научиться умножать числа.";
-    $courses = [
-        'Алгебра' => [
-            ['name' => 'Умножение', 'price' => 800000],
-            ['name' => 'Деление', 'price' => 800000],
-            ['name' => 'Формулы', 'price' => 800000],
-            ['name' => 'Расчет площади', 'price' => 800000],
-        ],
-        'Русский язык' => [
-            ['name' => 'Как писать сочинения', 'price' => 800000],
-            ['name' => 'Члены предложения', 'price' => 800000],
-        ],
-        'Физика' => [
-            ['name' => 'Механика', 'price' => 850000],
-            ['name' => 'Термодинамика', 'price' => 850000],
-            ['name' => 'Электричество', 'price' => 850000],
-        ],
-        'Химия' => [
-            ['name' => 'Органическая химия', 'price' => 900000],
-            ['name' => 'Неорганическая химия', 'price' => 900000],
-        ],
-        'Биология' => [
-            ['name' => 'Клеточная биология', 'price' => 750000],
-            ['name' => 'Генетика', 'price' => 750000],
-        ],
-    ];
+    $class = $data['grade'] . " класс";
+    $description = $data['description'];
+    $courses = $data->subjects
 @endphp
 <style>
     .add-button {
@@ -97,7 +73,7 @@
                     </div>
                     <div class="homeWork-category-body">
                         <div class="homeWork-category-text">
-                            {{ $description }}
+                            {!! $description !!}
                         </div>
                         <div class="homeWork-category-pictures">
                             <div class="pictures-wrapper">
@@ -115,31 +91,29 @@
                     <div class="add-button" title="Добавить" id="open-popup22" style="margin-right: 50px">+</div>
                 </div>
                 <br>
-                @foreach($courses as $category => $courseItems)
-                    @foreach($courseItems as $index =>$course)
-                        <a href="{{ url('class-edit/' . $index) }}" style="text-decoration: none; color: inherit;">
-                            <div class="leciton-row-second">
-                                <div class="leciton-cell-second">Полный курс {{ $category }} {{ $class }}</div>
-                                <div class="leciton-cell-second-last"><button class="submit-button-cell">Подробнее</button></div>
-                            </div>
-                        </a>
-                    @endforeach
+                @foreach($courses as  $courseItems)
+                    <a href="{{ url('class-edit/' . $courseItems['id']) }}" style="text-decoration: none; color: inherit;">
+                        <div class="leciton-row-second">
+                            <div class="leciton-cell-second">Полный курс {{ $courseItems['name'] }} {{ $class }}</div>
+                            <div class="leciton-cell-second-last"><button class="submit-button-cell">Подробнее</button></div>
+                        </div>
+                    </a>
                 @endforeach
             </div>
 
-            <div class="leciton-notification-item-body mobile">
-                <div class="leciton-notification-item_text" id="homeWorkHeaderLection">Предметы по курсу</div>
-                <div class="leciton-notification-items" id="homeWorkBodyLection" style="display: none;">
-                    @foreach($courses as $category => $courseItems)
-                        @foreach($courseItems as $course)
-                            <div class="leciton-row-second">
-                                <div class="leciton-cell-second">Полный курс {{ $category }} {{ $class }}</div>
-                                <div class="leciton-cell-second-last"><button class="submit-button-cell">Подробнее</button></div>
-                            </div>
-                        @endforeach
-                    @endforeach
-                </div>
-            </div>
+{{--            <div class="leciton-notification-item-body mobile">--}}
+{{--                <div class="leciton-notification-item_text" id="homeWorkHeaderLection">Предметы по курсу</div>--}}
+{{--                <div class="leciton-notification-items" id="homeWorkBodyLection" style="display: none;">--}}
+{{--                    @foreach($courses as $category => $courseItems)--}}
+{{--                        @foreach($courseItems as $course)--}}
+{{--                            <div class="leciton-row-second">--}}
+{{--                                <div class="leciton-cell-second">Полный курс {{ $category }} {{ $class }}</div>--}}
+{{--                                <div class="leciton-cell-second-last"><button class="submit-button-cell">Подробнее</button></div>--}}
+{{--                            </div>--}}
+{{--                        @endforeach--}}
+{{--                    @endforeach--}}
+{{--                </div>--}}
+{{--            </div>--}}
         </div>
 
         <div class="homeWork-sidebar">
@@ -158,7 +132,7 @@
                     <span class="teacherPage-acc-info-cell-right"
                           style="text-decoration: underline;
                            cursor: pointer;" id="open-popup8"
-                    >12.000.000
+                    >{{$data['price_won'] }}
                     </span>
                 </div>
 
@@ -167,7 +141,7 @@
                     <span class="teacherPage-acc-info-cell-right"
                           style="text-decoration: underline;
                            cursor: pointer;" id="open-popup9"
-                    >12.000.000
+                    >{{$data['price_rub'] }}
                     </span>
                 </div>
 
@@ -176,7 +150,7 @@
                     <span class="teacherPage-acc-info-cell-right"
                           style="text-decoration: underline;
                            cursor: pointer;" id="open-popup10"
-                    >12.000.000
+                    >{{$data['price_usd'] }}
                     </span>
                 </div>
 
@@ -185,7 +159,7 @@
                     <span class="teacherPage-acc-info-cell-right"
                           style="text-decoration: underline;
                            cursor: pointer;" id="open-popup11"
-                    >1.000.000
+                    >{{$data['month_price_won'] }}
                     </span>
                 </div>
 
@@ -194,7 +168,7 @@
                     <span class="teacherPage-acc-info-cell-right"
                           style="text-decoration: underline;
                            cursor: pointer;" id="open-popup12"
-                    >1.000.000
+                    >{{$data['month_price_rub'] }}
                     </span>
                 </div>
 
@@ -203,7 +177,7 @@
                     <span class="teacherPage-acc-info-cell-right"
                           style="text-decoration: underline;
                            cursor: pointer;" id="open-popup13"
-                    >1.000.000
+                    >{{$data['month_price_usd'] }}
                     </span>
                 </div>
                 <br>
