@@ -5,7 +5,7 @@
             <br>
             <h3>Вы уверены?</h3>
             <br>
-            <input type="hidden" id="inc" value="{{$data['id']}}">
+            <input type="hidden" id="inc" value="{{$data['data']['id'] ?? ''}}">
             <button class="popup-button" style="background-color: rgba(244, 206, 90, 1)" id="full-width-button7">Снять с продажи</button>
         </div>
     </div>
@@ -29,7 +29,7 @@
             const data = { action: 'remove_from_sale' };
             const incValue = document.getElementById('inc').value;
 
-            fetch('/lesson/grades/deactivate-activate/' + incValue, {
+            fetch('/api/lesson/grades/deactivate-activate/' + incValue, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',

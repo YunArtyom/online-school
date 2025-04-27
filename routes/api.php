@@ -43,8 +43,8 @@ Route::prefix('lesson')->middleware('auth:sanctum')->group(function () {
     Route::prefix('grades')->group(function () {
         Route::get('/', [LessonController::class, 'grades']);
         Route::get('/{grade}', [LessonController::class, 'grade']);
-        Route::put('/{grade}', [LessonController::class, 'editGrade'])->middleware('isDirector');
-        Route::put('/deactivate-activate/{grade}', [LessonController::class, 'deactivateActivateGrade'])->middleware('isDirector');
+        Route::put('/{grade}', [LessonController::class, 'editGrade']);
+        Route::put('/deactivate-activate/{grade}', [LessonController::class, 'deactivateActivateGrade']);
     });
 
     Route::prefix('subjects')->group(function () {

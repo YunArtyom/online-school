@@ -20,22 +20,35 @@ class GradeController
         return $this->renderView($endpoint, 'Класс');
     }
 
+    public function subject($subject)
+    {
+        $endpoint = '/lesson/subjects/' . $subject->id;
+
+        return $this->renderView($endpoint, 'Предмет');
+    }
+
     public function deactivateActivateGrade($grade)
     {
-        $response = ApiCallFacade::put('/lesson/grades/deactivate-activate/' . $grade->id);
+        return ApiCallFacade::put('/lesson/grades/deactivate-activate/' . $grade->id);
+    }
 
-        return $response;
+    public function createSubject()
+    {
+        return ApiCallFacade::post('/lesson/subjects');
+    }
+
+    public function editGrade(Request $request, $grade)
+    {
+        return ApiCallFacade::put('/lesson/grades/' . $grade);
     }
 
     private function renderView(string $endpoint, string $title)
     {
         $response = ApiCallFacade::get($endpoint);
-
-        $data = $response['data'] ?? [];
         $template = $this->resolveTemplate($endpoint);
 
         return view('class.class', [
-            'data' => $data,
+            'data' => $response,
             'sidebarTitle' => $title,
             'sidebarItems' => $this->sidebarMenu(),
             'template' => $template,
@@ -48,7 +61,7 @@ class GradeController
         $map = [
             'lesson/grades' => 'class.classList',
             'lesson/grades/*' => 'class.classEdit',
-            'lesson/class/*/subject/*' => 'class.classEditDetail',
+            'lesson/subjects/*' => 'class.classEditDetail',
         ];
 
         foreach ($map as $pattern => $view) {

@@ -27,9 +27,16 @@ Route::middleware(['apiAuth'])->group(function () {
         Route::prefix('grades')->group(function () {
             Route::get('/', [GradeController::class, 'grades']);
             Route::get('/{grade}', [GradeController::class, 'grade']);
-//            Route::put('/{grade}', [LessonController::class, 'editGrade'])->middleware('isDirector');
+            Route::put('/{grade}', [GradeController::class, 'editGrade'])->middleware('isDirector');
             Route::put('/deactivate-activate/{grade}', [GradeController::class, 'deactivateActivateGrade'])->middleware('isDirector');
         });
-    });
 
+        Route::prefix('subjects')->group(function () {
+            Route::post('/', [GradeController::class, 'createSubject']);
+            Route::get('/{subject}', [GradeController::class, 'subject']);
+//        Route::put('/{subject}', [LessonController::class, 'editSubject'])->middleware('isDirector');
+//        Route::put('/deactivate-activate/{subject}', [LessonController::class, 'deactivateActivateSubject'])->middleware('isDirector');
+
+        });
+    });
 });
