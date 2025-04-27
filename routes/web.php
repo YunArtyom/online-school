@@ -26,6 +26,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('topic/{id}', [TopicController::class, 'getForUpdate']);
     Route::get('class', [ClassController::class, 'list']);
     Route::get('class/{id}', [ClassController::class, 'get']);
+    //'class-edit/{id}' - class/1/subject/1
     Route::get('class-edit/{id}', [ClassController::class, 'getForEdit']);
 
 });
